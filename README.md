@@ -20,7 +20,7 @@ Bryce Boe ([@bboe](https://github.com/bboe/))
 ![bboe photo](https://avatars3.githubusercontent.com/u/48100?s=120)
 
 
-Yalun Qin ([@eaglesky](https://github.com/eaglesky))
-![yalun's photo](https://avatars2.githubusercontent.com/u/3161743?v=2&s=120)
+Yalun Qin ([@eaglesky](https://github.com/eaglesky))   
+![yalun photo](https://avatars3.githubusercontent.com/u/3161743?s=120)
 
 
