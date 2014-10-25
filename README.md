@@ -23,3 +23,5 @@ Yalun Qin ([@eaglesky](https://github.com/eaglesky))
 ![yalun photo](https://avatars3.githubusercontent.com/u/3161743?s=120)
 
 
+Bay-Yuan ([@soulhsu](https://github.com/soulhsu/))   
+![soulhsu photo](https://avatars3.githubusercontent.com/u/9331080?v=2&s=120)
