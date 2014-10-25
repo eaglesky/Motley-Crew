@@ -7,8 +7,7 @@ throughout the quarter to provide more examples for the various CS290 projects.
 This section of the README should provide a general overview of the team's
 project.
 
-[PivotalTracker](https://www.pivotaltracker.com/n/projects/1192928) (replace
-with your project link)
+[PivotalTracker](https://www.pivotaltracker.com/n/projects/1193878)
 
 ## DEMO TEAM (replace with your team name)
 
