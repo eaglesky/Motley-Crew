@@ -9,7 +9,7 @@ project.
 
 [PivotalTracker](https://www.pivotaltracker.com/n/projects/1193878)
 
-## DEMO TEAM (replace with your team name)
+## Reviewers 
 
 Andrew Mutz ([@amutz](https://github.com/amutz))  
 ![amutz photo](https://avatars3.githubusercontent.com/u/919763?v=2&s=120)
@@ -18,6 +18,7 @@ Andrew Mutz ([@amutz](https://github.com/amutz))
 Bryce Boe ([@bboe](https://github.com/bboe/))  
 ![bboe photo](https://avatars3.githubusercontent.com/u/48100?s=120)
 
+## Team Members
 
 Yalun Qin ([@eaglesky](https://github.com/eaglesky))   
 ![yalun photo](https://avatars3.githubusercontent.com/u/3161743?s=120)
