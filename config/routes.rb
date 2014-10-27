@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'main_static_pages/home'
+
+  get 'main_static_pages/help'
+
   get 'say/hello'
 
   get 'say/goodbye'
