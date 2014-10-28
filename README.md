@@ -1,4 +1,4 @@
-# LabApp Demo (replace with your project name)
+# Quest Master
 
 LabApp Demo is a project that demonstrates some rails concepts that may be
 useful for all CS290 students in their projects. This project will be built-up
