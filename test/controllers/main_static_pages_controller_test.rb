@@ -4,24 +4,24 @@ class MainStaticPagesControllerTest < ActionController::TestCase
   test "should get home" do
     get :home
     assert_response :success
-    assert_select "title", "Motley-Crew"
+    assert_select "title", Constant.app_title
   end
 
   test "should get help" do
     get :help
     assert_response :success
-    assert_select "title", "Help | Motley-Crew"
+    assert_select "title", "Help | " + Constant.app_title
   end
 
   test "should get about" do
     get :about
     assert_response :success
-    assert_select "title", "About | Motley-Crew"
+    assert_select "title", "About | " + Constant.app_title
   end
 
   test "should get contact" do
     get :contact
     assert_response :success
-    assert_select "title", "Contact | Motley-Crew"
+    assert_select "title", "Contact | " + Constant.app_title
   end
 end
