@@ -26,3 +26,7 @@ Yalun Qin ([@eaglesky](https://github.com/eaglesky))
 
 Bay-Yuan ([@soulhsu](https://github.com/soulhsu/))   
 ![soulhsu photo](https://avatars3.githubusercontent.com/u/9331080?v=2&s=120)
+
+Karthik Puthraya ([@krthk]((https://github.com/krthk/))   
+![krthk photo](https://www.cs.ucsb.edu/~mturk/cs40/images/karthik.jpg)
+
