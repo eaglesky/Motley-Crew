@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessor :name, :email
+ # attr_accessor :name, :email
   before_save { self.email = email.downcase }
   
   validates :name, presence: true, length: { maximum: 50 }
@@ -9,14 +9,16 @@ class User < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX }, 
     uniqueness: {case_sensitive: false }
 
+  has_secure_password
+  validates :password, length: { minimum: 6 }
 
-  def initialize(attributes = {})
-    @name  = attributes[:name]
-    @email = attributes[:email]
-  end
+  # def initialize(attributes = {})
+  #   @name  = attributes[:name]
+  #   @email = attributes[:email]
+  # end
 
-  def formatted_email
-    "#{@name} <#{@email}>"
-  end
+  # def formatted_email
+  #   "#{@name} <#{@email}>"
+  # end
 
 end
