@@ -48,6 +48,6 @@ gem 'bcrypt',               '3.1.9'
 gem 'byebug',      '3.5.1'
 
 gem 'mysql2', group: :production
-gem 'sqlite3', group: :development
-gem 'sqlite3', group: :test
+gem 'sqlite3', group: [:development, :test]
+
 gem 'therubyracer',  platforms: :ruby
