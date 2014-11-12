@@ -4,10 +4,10 @@ class CreateDeliveryQuests < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :reward
-      t.references :quest_giver_id
-      t.references :quester_id
-      t.references :source_id
-      t.references :destination_id
+      t.references :quest_giver
+      t.references :quester
+      t.references :source
+      t.references :destination
 
       t.timestamps
     end

@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
+  has_many :posted_deliveries, :class_name => "DeliveryQuest", :foreign_key => "quest_giver_id"
+  has_many :deliveries, :class_name => "DeliveryQuest", :foreign_key => "quester_id"
+
   # def initialize(attributes = {})
   #   @name  = attributes[:name]
   #   @email = attributes[:email]
