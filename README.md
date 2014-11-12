@@ -32,3 +32,6 @@ Bay-Yuan ([@soulhsu](https://github.com/soulhsu/))
 Karthik Puthraya ([@krthk](https://github.com/krthk/))   
 ![krthk photo](https://avatars3.githubusercontent.com/u/5073107?v=2&s=120)
 
+Chad Simmons ([@polpak](https://github.com/polpak/))   
+![polpak photo](https://avatars3.githubusercontent.com/u/1821933?v=3&s=460)
+
