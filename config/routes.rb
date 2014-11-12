@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+  resources :delivery_quests
+
+  resources :locations
+
   get 'sessions/new'
 
   root 'main_static_pages#home'
