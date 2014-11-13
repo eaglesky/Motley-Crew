@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+santa_barbara:
+  name: Santa Barbara
+
+goleta:
+  name:	Goleta 

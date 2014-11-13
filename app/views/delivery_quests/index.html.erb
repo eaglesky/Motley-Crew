@@ -1,0 +1,29 @@
+<h1>Listing delivery_quests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Reward</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delivery_quests.each do |delivery_quest| %>
+      <tr>
+        <td><%= delivery_quest.title %></td>
+        <td><%= delivery_quest.description %></td>
+        <td><%= delivery_quest.reward %></td>
+        <td><%= link_to 'Show', delivery_quest %></td>
+        <td><%= link_to 'Edit', edit_delivery_quest_path(delivery_quest) %></td>
+        <td><%= link_to 'Destroy', delivery_quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery quest', new_delivery_quest_path %>
