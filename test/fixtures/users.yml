@@ -5,4 +5,34 @@ michael:
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
 
+User1:
+  name: User1
+  email: user1@example.com
+  password_digest: <%= User.digest('12345678') %>
+
+User2:
+  name: User2
+  email: user2@example.com
+  password_digest: <%= User.digest('12345678') %>
+
+User3:
+  name: User3
+  email: user3@example.com
+  password_digest: <%= User.digest('12345678') %>
+
+User4:
+  name: User4
+  email: user4@example.com
+  password_digest: <%= User.digest('12345678') %>
+
+User5:
+  name: User5
+  email: user5@example.com
+  password_digest: <%= User.digest('12345678') %>
+
+User6:
+  name: User6
+  email: user6@example.com
+  password_digest: <%= User.digest('12345678') %>
+
 
