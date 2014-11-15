@@ -22,3 +22,8 @@ users.each do|user|
     reward: "10$", source: Faker::Address.street_address, destination: Faker::Address.street_address)
 
 end
+
+for i in 1..50
+  DeliveryQuest.create!(title: "System quest #{i}", description: "Description of system quest #{i}",
+    reward: "0$", source: "TBD", destination: "TBD")
+end

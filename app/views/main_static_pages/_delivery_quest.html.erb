@@ -1,0 +1,8 @@
+<li id="quest-<%= delivery_quest.id %>">
+
+  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+  <span class="title"><%= delivery_quest.title %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(delivery_quest.created_at) %> ago.
+  </span>
+</li>

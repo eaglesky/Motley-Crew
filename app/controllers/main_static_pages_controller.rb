@@ -12,6 +12,8 @@ class MainStaticPagesController < ApplicationController
   end
   
   def quests
+    @delivery_quests = DeliveryQuest.all
+    
   end
   
 end

@@ -1,5 +1,14 @@
-<% provide(:title, 'Contact') %>
+<% provide(:title, 'Quests') %>
 <h1>Quests</h1>
-<p>
-   This is a list of quests created
-</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <% if @delivery_quests.any? %>
+      <h3>Quests (<%= @delivery.count %>)</h3>
+      <ol class="quests">
+        <%= render @delivery_quests %>
+      </ol>
+      <%= will_paginate @delivery_quests %>
+    <% end %>
+  </div>
+</div>

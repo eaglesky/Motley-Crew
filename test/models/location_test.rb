@@ -5,7 +5,7 @@ class LocationTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup 
-    @user1 = users(:User1)
+    
   end
 
   test "New created quests should insert its locations into table locations" do
