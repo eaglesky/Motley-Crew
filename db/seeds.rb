@@ -6,9 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(name: 'User1', email: 'user1@example.com', password: '12345678', password_confirmation: '12345678')
-User.create!(name: 'User2', email: 'user2@example.com', password: '12345678', password_confirmation: '12345678')
-User.create!(name: 'User3', email: 'user3@example.com', password: '12345678', password_confirmation: '12345678')
-User.create!(name: 'User4', email: 'user4@example.com', password: '12345678', password_confirmation: '12345678')
-User.create!(name: 'User5', email: 'user5@example.com', password: '12345678', password_confirmation: '12345678')
-User.create!(name: 'User6', email: 'user6@example.com', password: '12345678', password_confirmation: '12345678')
+user_password = "12345678"
+user_password_confirmation = user_password
+
+for i in 1..10
+  user_name = "User#{i}"
+  user_email = "user#{i}@example.com"
+  User.create!(name: user_name, email: user_email, password: user_password, 
+    password_confirmation: user_password_confirmation)
+end
+
+users = User.order(:id).take(6)
+users.each do|user|
+  user.posted_deliveries.create!(title: user.name + " title", description: user.name + " quest description", 
+    reward: "10$", source: Faker::Address.street_address, destination: Faker::Address.street_address)
+
+end

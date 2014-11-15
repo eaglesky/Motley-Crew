@@ -46,6 +46,7 @@ gem 'autoprefixer-rails'
 
 gem 'bcrypt',               '3.1.9'
 gem 'byebug',      '3.5.1'
+gem 'faker',                '1.4.3'
 
 gem 'mysql2', group: :production
 gem 'sqlite3', group: [:development, :test]
