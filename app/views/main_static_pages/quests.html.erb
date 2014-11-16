@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-8">
     <% if @delivery_quests.any? %>
-      <h3>Quests (<%= @delivery.count %>)</h3>
+      <h3>Quests (<%= @delivery_quests.count %>)</h3>
       <ol class="quests">
         <%= render @delivery_quests %>
       </ol>

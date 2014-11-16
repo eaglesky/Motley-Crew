@@ -1,0 +1,12 @@
+<li id="quest-<%= delivery_quest.id %>">
+
+  
+  <span class="title"><%= delivery_quest.id.to_s + ": " + delivery_quest.title %></span>
+  <span class="content">Reward: <%= delivery_quest.reward %> </span>
+  <span class="content">From <%= delivery_quest.source %> to <%= delivery_quest.destination %>
+  </span>
+  
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(delivery_quest.created_at) %> ago.
+  </span>
+</li>

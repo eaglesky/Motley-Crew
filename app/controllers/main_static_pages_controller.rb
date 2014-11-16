@@ -12,7 +12,7 @@ class MainStaticPagesController < ApplicationController
   end
   
   def quests
-    @delivery_quests = DeliveryQuest.all
+    @delivery_quests = DeliveryQuest.paginate(page: params[:page], per_page: 10)
     
   end
   
