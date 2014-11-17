@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class DeliveryQuestTest < ActiveSupport::TestCase
+
+
+=begin
   test "Quest should not save without a quest_giver" do
     quest = DeliveryQuest.new
     assert_not quest.save
@@ -17,4 +20,7 @@ class DeliveryQuestTest < ActiveSupport::TestCase
 
     assert quest.save
   end
+
+=end
+
 end

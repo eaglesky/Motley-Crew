@@ -2,6 +2,16 @@ Rails.application.routes.draw do
  
   resources :delivery_quests
 
+  
+
+  # resources :delivery_quests do
+  # collection do
+  # match 'search' => 'main_static_pages#quests', :via => [:get, :post], :as => :search
+  # end
+  # end
+
+  
+
   resources :locations
 
   get 'sessions/new'
@@ -11,7 +21,8 @@ Rails.application.routes.draw do
   get 'help'    => 'main_static_pages#help'
   get 'about'   => 'main_static_pages#about'
   get 'contact' => 'main_static_pages#contact'
-
+  get 'quests' => 'delivery_quests#index'
+  
   get 'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

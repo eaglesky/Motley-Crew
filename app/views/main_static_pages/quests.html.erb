@@ -1,0 +1,43 @@
+<% provide(:title, 'Quests') %>
+<h1>Quests</h1>
+
+<!--
+<div class="row">
+  
+  <div class="input-group" >
+
+    <%= form_tag quests_path, :method => 'get', :class => "form-inline" do %>
+     
+      <%= text_field_tag :search, params[:search] %>
+     
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+    
+    <% end %>
+  </div>
+ 
+</div>
+-->
+
+<%= search_form_for @search do |f| %>
+  <div class = "field">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont %>
+  </div>
+  <div class = "actions"><%= f.submit "Search" %></div>
+<% end %>
+
+
+<div class="row">
+  <div class="col-md-8">
+    <% if @delivery_quests.any? %>
+      <h3>Quests (<%= @delivery_quests.count %>)</h3>
+
+
+
+      <ol class="quests">
+        <%= render @delivery_quests %>
+      </ol>
+      <%= will_paginate @delivery_quests %>
+    <% end %>
+  </div>
+</div>

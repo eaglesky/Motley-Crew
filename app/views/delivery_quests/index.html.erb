@@ -1,29 +1,106 @@
-<h1>Listing delivery_quests</h1>
+<% provide(:title, 'Quests') %>
+<h1>Quests</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Reward</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!--
+<div class="row">
+  
+  <div class="input-group" >
 
-  <tbody>
-    <% @delivery_quests.each do |delivery_quest| %>
-      <tr>
-        <td><%= delivery_quest.title %></td>
-        <td><%= delivery_quest.description %></td>
-        <td><%= delivery_quest.reward %></td>
-        <td><%= link_to 'Show', delivery_quest %></td>
-        <td><%= link_to 'Edit', edit_delivery_quest_path(delivery_quest) %></td>
-        <td><%= link_to 'Destroy', delivery_quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%= form_tag quests_path, :method => 'get', :class => "form-inline" do %>
+     
+      <%= text_field_tag :search, params[:search] %>
+     
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+    
     <% end %>
-  </tbody>
+  </div>
+ 
+</div>
+-->
+
+
+
+<%= search_form_for @search do |f| %>
+  
+  <!--
+  <div class = "input_group">
+    <%= f.label :title_cont, "Title contains", :class => "control-label col-md-2" %>
+    <%= f.text_field :title_cont, :class => "col-md-2" %>
+  </div>
+   -->
+  
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+
+  <div class = "row">
+  <div class = "col-md-2"><%= f.submit "Search", class: "btn btn-primary" %></div>
+  </div>
+ 
+
+<% end %>
+
+
+
+<!--
+<div class="row">
+  <div class="col-md-8">
+    <% if @delivery_quests.any? %>
+      <h3>Quests (<%= @delivery_quests.count %>)</h3>
+
+
+
+      <ol class="quests">
+        <%= render @delivery_quests %>
+      </ol>
+      <%= will_paginate @delivery_quests %>
+    <% end %>
+  </div>
+</div>
+-->
+
+<div class="row">
+  <div class="col-md-8">
+    <% if @delivery_quests.any? %>
+      <h3>Quests (<%= @delivery_quests.count %>)</h3>
+    <% end %>
+  </div>
+</div>
+
+<table id="quests_table" class="table table-condensed table-hover table-bordered table-responsive"> 
+<!--<table > -->
+  
+  <tr>
+    <th><%= sort_link @search, :id, "ID" %></th>
+    <th><%= sort_link @search, :title, "Title" %></th>
+    <th><%= sort_link @search, :reward, "Reward" %></th>
+    <th><%= sort_link @search, :source, "Source" %></th>
+    <th><%= sort_link @search, :destination, "Destination" %></th>
+    <th>Quest Giver</th>
+    <th>Quester</th>
+    <th><%= sort_link @search, :created_at, "Created Time" %></th>
+  </tr>
+  
+<% @delivery_quests.each do |delivery_quest| %>
+  <tr>
+    <td><%= delivery_quest.id.to_s %></td>
+    <td><%= delivery_quest.title %></td>
+    <td><%= delivery_quest.reward %></td>
+    <td><%= delivery_quest.source %></td>
+    <td><%= delivery_quest.destination %></td>
+    <td><%= delivery_quest.quest_giver == nil ? 
+  "System" : delivery_quest.quest_giver.name %></td>
+
+    <td><%= delivery_quest.quester == nil ? 
+  "Nobody" : delivery_quest.quester.name %></td>
+
+    <td><%= time_ago_in_words(delivery_quest.created_at) + " ago" %>
+  </tr>
+<% end %>
 </table>
 
-<br>
 
-<%= link_to 'New Delivery quest', new_delivery_quest_path %>
+
+<%= will_paginate @delivery_quests %>

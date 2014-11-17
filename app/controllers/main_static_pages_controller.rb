@@ -11,4 +11,8 @@ class MainStaticPagesController < ApplicationController
   def contact
   end
   
+  def quests
+  
+  end
+  
 end
