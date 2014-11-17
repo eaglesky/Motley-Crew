@@ -19,15 +19,25 @@
 -->
 
 
+
 <%= search_form_for @search do |f| %>
-  <div class = "field">
-    <%= f.label :title_cont, "Title contains" %>
-    <%= f.text_field :title_cont %>
+  
+  <div class = "input_group">
+    <%= f.label :title_cont, "Title contains", :class => "control-label col-md-2" %>
+    <%= f.text_field :title_cont, :class => "col-md-2" %>
   </div>
-  <div class = "actions"><%= f.submit "Search" %></div>
+  <div class = "row">
+
+  <div class = "col-md-2"><%= f.submit "Search", class: "btn btn-primary" %></div>
+
+  </div>
+ 
+
 <% end %>
 
 
+
+<!--
 <div class="row">
   <div class="col-md-8">
     <% if @delivery_quests.any? %>
@@ -42,3 +52,41 @@
     <% end %>
   </div>
 </div>
+-->
+
+<div class="row">
+  <div class="col-md-8">
+    <% if @delivery_quests.any? %>
+      <h3>Quests (<%= @delivery_quests.count %>)</h3>
+    <% end %>
+  </div>
+</div>
+
+<table id="quest_table">
+  <tr>
+    <th><%= sort_link @search, :id, "ID" %></th>
+    <th><%= sort_link @search, :title, "Title" %></th>
+    <th><%= sort_link @search, :reward, "Reward" %></th>
+    <th><%= sort_link @search, :source, "Source" %></th>
+    <th><%= sort_link @search, :destination, "Destination" %></th>
+    <th>Quest Giver</th>
+    <th>Quester</th>
+
+  </tr>
+<% @delivery_quests.each do |delivery_quest| %>
+  <tr>
+    <td><%= delivery_quest.id.to_s %></td>
+    <td><%= delivery_quest.title %></td>
+    <td><%= delivery_quest.reward %></td>
+    <td><%= delivery_quest.source %></td>
+    <td><%= delivery_quest.destination %></td>
+    <td<%= delivery_quest.quest_giver == nil ? 
+  "System" : delivery_quest.quest_giver.name %></td>
+     <td><%= delivery_quest.quester == nil ? 
+  "Nobody" : delivery_quest.quester.name %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @delivery_quests %>
