@@ -10,7 +10,7 @@ class DeliveryQuest < ActiveRecord::Base
  # has_one :destination, :class_name => "Location", :foreign_key => "location_id"
 
   
-  def self.search(search, page)
+  def self.simple_search(search, page)
 
     if search != nil && !search.empty?
       order('title').where('title LIKE ?', "%#{search}%").paginate(:page => page,:per_page => 10)

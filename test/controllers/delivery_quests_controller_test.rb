@@ -41,11 +41,5 @@ class DeliveryQuestsControllerTest < ActionController::TestCase
     assert_redirected_to delivery_quest_path(assigns(:delivery_quest))
   end
 
-  test "should destroy delivery_quest" do
-    assert_difference('DeliveryQuest.count', -1) do
-      delete :destroy, id: @delivery_quest
-    end
 
-    assert_redirected_to delivery_quests_path
-  end
 end

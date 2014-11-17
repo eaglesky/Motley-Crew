@@ -12,7 +12,7 @@ class MainStaticPagesController < ApplicationController
   end
   
   def quests
-    @delivery_quests = DeliveryQuest.search(params[:search], params[:page])
+  
   end
   
 end
