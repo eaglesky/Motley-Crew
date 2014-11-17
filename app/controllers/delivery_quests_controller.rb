@@ -5,8 +5,10 @@ class DeliveryQuestsController < ApplicationController
   # GET /delivery_quests.json
   def index
     @search = DeliveryQuest.search(params[:q])
+    
     #@delivery_quests = DeliveryQuest.search(params[:search], params[:page])
     @delivery_quests = @search.result.paginate(:page => params[:page], :per_page => 10)
+
   end
 
   # GET /delivery_quests/1

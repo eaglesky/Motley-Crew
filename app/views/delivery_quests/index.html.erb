@@ -22,14 +22,21 @@
 
 <%= search_form_for @search do |f| %>
   
+  <!--
   <div class = "input_group">
     <%= f.label :title_cont, "Title contains", :class => "control-label col-md-2" %>
     <%= f.text_field :title_cont, :class => "col-md-2" %>
   </div>
+   -->
+  
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+
   <div class = "row">
-
   <div class = "col-md-2"><%= f.submit "Search", class: "btn btn-primary" %></div>
-
   </div>
  
 
