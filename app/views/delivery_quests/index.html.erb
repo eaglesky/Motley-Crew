@@ -62,7 +62,9 @@
   </div>
 </div>
 
-<table id="quest_table">
+<table id="quests_table" class="table table-condensed table-hover table-bordered table-responsive"> 
+<!--<table > -->
+  
   <tr>
     <th><%= sort_link @search, :id, "ID" %></th>
     <th><%= sort_link @search, :title, "Title" %></th>
@@ -71,8 +73,9 @@
     <th><%= sort_link @search, :destination, "Destination" %></th>
     <th>Quest Giver</th>
     <th>Quester</th>
-
+    <th><%= sort_link @search, :created_at, "Created Time" %></th>
   </tr>
+  
 <% @delivery_quests.each do |delivery_quest| %>
   <tr>
     <td><%= delivery_quest.id.to_s %></td>
@@ -80,13 +83,17 @@
     <td><%= delivery_quest.reward %></td>
     <td><%= delivery_quest.source %></td>
     <td><%= delivery_quest.destination %></td>
-    <td<%= delivery_quest.quest_giver == nil ? 
+    <td><%= delivery_quest.quest_giver == nil ? 
   "System" : delivery_quest.quest_giver.name %></td>
-     <td><%= delivery_quest.quester == nil ? 
+
+    <td><%= delivery_quest.quester == nil ? 
   "Nobody" : delivery_quest.quester.name %></td>
 
+    <td><%= time_ago_in_words(delivery_quest.created_at) + " ago" %>
   </tr>
 <% end %>
 </table>
+
+
 
 <%= will_paginate @delivery_quests %>
