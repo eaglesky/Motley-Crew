@@ -11,9 +11,16 @@ class DeliveryQuestsController < ApplicationController
 
   def update
     @delivery_quest = DeliveryQuest.find(params[:id])
+
+    redirect_to delivery_quest_path(@delivery_quest) unless !@delivery_quest.completed
+
     fields = update_quest_params
     if fields[:quester_id] && (Integer(fields[:quester_id]) == current_user.id)
       @delivery_quest.quester = current_user
+    end
+
+    if fields[:completed]
+      @delivery_quest.completed = true
     end
 
     @delivery_quest.save

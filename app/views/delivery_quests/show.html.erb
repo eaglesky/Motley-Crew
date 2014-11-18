@@ -6,21 +6,25 @@
 	<p>Reward: <%= @delivery_quest.reward %></p>
 	<p>Quest Giver: <%= @delivery_quest.quest_giver.name %></p>
       </div>
-	<% if @delivery_quest.quester && @delivery_quest.quester != current_user %>
-	<p>Someone else has already accepted this quest</p>
-	<% elsif @delivery_quest.quester %>
-	<!-- TODO -->
-	  <%= form_for @delivery_quest do |f| %>
-	  <%= f.submit "Complete Quest", class: "btn btn-primary" %>
-	  <% end %>	
-	<% else %>
-	<div>
+      <% if @delivery_quest.completed %>
+      <h2>Quest complete!</h2>
+      <% else %>
+      <% if @delivery_quest.quester && @delivery_quest.quester != current_user %>
+      <p>Someone else has already accepted this quest</p>
+      <% elsif @delivery_quest.quester %>
+      <!-- TODO -->
+      <%= form_for @delivery_quest do |f| %>
+      <%= f.hidden_field :completed, value: "true" %>
+      <%= f.submit "Complete Quest", class: "btn btn-primary" %>
+      <% end %>	
+      <% else %>
+      <div>
 	  <%= form_for @delivery_quest do |f| %>
 	  <%= f.hidden_field :quester_id, value: current_user.id %>
 	  <%= f.submit "Accept Quest", class: "btn btn-primary" %>
 	  <% end %>
-	</div>
-	<% end %>
-
+      </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
