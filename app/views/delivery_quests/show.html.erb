@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @delivery_quest.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @delivery_quest.description %>
-</p>
-
-<p>
-  <strong>Reward:</strong>
-  <%= @delivery_quest.reward %>
-</p>
-
-<%= link_to 'Edit', edit_delivery_quest_path(@delivery_quest) %> |
-<%= link_to 'Back', delivery_quests_path %>
+<h1><%= @delivery_quest.title %></h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div><p class="quest_description"><%= @delivery_quest.description %></p></div>
+      <div>
+	<p>Reward: <%= @delivery_quest.reward %></p>
+	<p>Quest Giver: <%= @delivery_quest.quest_giver.name %></p>
+      </div>
+      <% if @delivery_quest.completed %>
+      <h2>Quest complete!</h2>
+      <% else %>
+      <% if @delivery_quest.quester && @delivery_quest.quester != current_user %>
+      <p>Someone else has already accepted this quest</p>
+      <% elsif @delivery_quest.quester %>
+      <!-- TODO -->
+      <%= form_for @delivery_quest do |f| %>
+      <%= f.hidden_field :completed, value: "true" %>
+      <%= f.submit "Complete Quest", class: "btn btn-primary" %>
+      <% end %>	
+      <% else %>
+      <div>
+	  <%= form_for @delivery_quest do |f| %>
+	  <%= f.hidden_field :quester_id, value: current_user.id %>
+	  <%= f.submit "Accept Quest", class: "btn btn-primary" %>
+	  <% end %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>

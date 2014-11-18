@@ -1,0 +1,24 @@
+<div class="field">
+  <div class="row">
+    <div class="col-md-2">
+    <%= f.attribute_fields  do |a| %>
+      <%= a.attribute_select associations: [:user] %>
+    <% end %>
+    </div>
+
+    <div class="col-md-2">
+    <%= f.predicate_select %>
+    </div>
+
+    <div class="col-md-4">
+    <%= f.value_fields do |v| %>
+      <%= v.text_field :value %>
+    <% end %>
+    </div>
+
+    <div class="col-md-4">
+    <%= link_to "remove", '#', class: "remove_fields" %>
+    </div>
+    
+  </div>
+</div>

@@ -1,11 +1,18 @@
 class DeliveryQuest < ActiveRecord::Base
-  belongs_to :quest_giver, :class_name => "User", :foreign_key => "user_id"
-  validates :quest_giver_id, :presence => true
-  belongs_to :quester, :class_name => "User", :foreign_key => "user_id"
-  
-  has_one :source, :class_name => "Location", :foreign_key => "location_id"
-  has_one :destination, :class_name => "Location", :foreign_key => "location_id"
+  belongs_to :quest_giver, :class_name => "User"   
+  belongs_to :quester, :class_name => "User"
 
   
+  def self.simple_search(search, page)
+
+    if search != nil && !search.empty?
+      order('title').where('title LIKE ?', "%#{search}%").paginate(:page => page,:per_page => 10)
+
+    else
+      order('id').paginate(page: page, per_page: 10)
+    
+    end
+  end
+
 
 end
