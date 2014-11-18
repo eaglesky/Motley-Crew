@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   resources :delivery_quests
-
+  resources :users
   
 
   # resources :delivery_quests do
@@ -12,22 +12,22 @@ Rails.application.routes.draw do
 
   
 
-  resources :locations
-
   get 'sessions/new'
 
   root 'main_static_pages#home'
    
-  get 'help'    => 'main_static_pages#help'
-  get 'about'   => 'main_static_pages#about'
-  get 'contact' => 'main_static_pages#contact'
+  # get 'help'    => 'main_static_pages#help'
+  # get 'about'   => 'main_static_pages#about'
+  # get 'contact' => 'main_static_pages#contact'
   get 'quests' => 'delivery_quests#index'
   
   get 'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :users
+
+  get 'profile' => 'users#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,11 +1,14 @@
+
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
   def new
     @user = User.new
   end
 
   def show
-    @user = User.find(params[:id])
-
+    @user = current_user
+    @posted_quests = DeliveryQuest.where(quest_giver: @user)
+    @accepted_quests = DeliveryQuest.where(quester: @user)
   end
 
   def create
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
       # Handle a successful save.
       log_in @user
       flash[:success] = "Welcome to " + Constant.app_name
-      redirect_to user_url(@user)
+      redirect_to profile_path
     else
       render 'new'
     end
@@ -27,6 +30,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-
 
 end

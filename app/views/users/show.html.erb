@@ -7,5 +7,34 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section class="posted_quests">
+      <h2>Posted Quests</h2>
+      <% if @posted_quests.any? %>
+      <ul>
+	<% @posted_quests.each do |quest| %>
+	<li><a href="<%= delivery_quest_url(quest) %>"><%= quest.title %></a></li>
+	<% end %>
+      </ul>
+      <% else %>
+      <span> None... </span>
+      <% end %>
+
+      <a href="<%= new_delivery_quest_path %>" class="btn btn-primary">Post a new quest</a>
+    </section>
+
+    <section class="accepted_quests">
+      <h2>Active Quests</h2>
+      <% if @accepted_quests.any? %>
+      <ul>
+	<% @accepted_quests.each do |quest| %>
+	<li><a href="<%= delivery_quest_url(quest) %>"><%= quest.title %></a></li>
+	<% end %>
+      </ul>
+      <% else %>
+      <span> None... </span>
+      <% end %>
+      <a href="<%= delivery_quests_path %>" class="btn btn-primary">Find a quest!</a>
+    </section>
+
   </aside>
 </div>
