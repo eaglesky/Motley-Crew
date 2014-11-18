@@ -14,7 +14,7 @@ class DeliveryQuestsController < ApplicationController
   # GET /delivery_quests/1
   # GET /delivery_quests/1.json
   def show
-    
+    @delivery_quest = DeliveryQuest.find(params[:id])
   end
 
   # GET /delivery_quests/new

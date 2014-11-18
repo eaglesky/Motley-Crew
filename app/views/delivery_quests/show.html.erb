@@ -1,1 +1,14 @@
+<h1><%= @delivery_quest.title %></h1>
+<div><p><%= @delivery_quest.description %></p></div>
+<div>
+<p>Reward: <%= @delivery_quest.reward %></p>
+<p>Quest Giver: <%= @delivery_quest.quest_giver.name %></p>
 
+<% if @delivery_quest.quester && @delivery_quest.quester != current_user %>
+<p>Someone else has already accepted this quest</p>
+<% elsif @delivery_quest.quester %>
+<!-- TODO -->
+Button to finish quest goes here
+<% else %>
+Button to accept quest goes here
+<% end %>

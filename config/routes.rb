@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   resources :delivery_quests
-
+  resources :users
   
 
   # resources :delivery_quests do
