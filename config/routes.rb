@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
  
+ # resources :delivery_quests do
+ #   collection { post :search, to: 'delivery_quests#index' }
+ # end
+
   resources :delivery_quests
+  
   resources :users
   
 
