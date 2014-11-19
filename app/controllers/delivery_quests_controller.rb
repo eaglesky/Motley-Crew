@@ -7,6 +7,7 @@ class DeliveryQuestsController < ApplicationController
     @search = DeliveryQuest.search(params[:q])
     
     @delivery_quests = @search.result.paginate(:page => params[:page], :per_page => 10)
+    @search.build_condition if @search.conditions.empty?
   end
 
   def update
