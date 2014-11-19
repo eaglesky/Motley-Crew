@@ -1,3 +1,5 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
 body {
   background-color: #fff;
   color: #333;
@@ -19,9 +21,10 @@ pre {
 }
 
 a {
-  color: #000;
+  color:black;
+  font-size:1.3em;
   &:visited {
-    color: #666;
+    color:black;
   }
   &:hover {
     color: #fff;
