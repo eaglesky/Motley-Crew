@@ -82,7 +82,8 @@
   </tr>
   
 <% @delivery_quests.each do |delivery_quest| %>
-  <tr>
+  <tr  onclick="location.href='<%= delivery_quest_path(delivery_quest.id) %>'", 
+      style="cursor: pointer">
     <td><%= delivery_quest.id.to_s %></td>
     <td><%= delivery_quest.title %></td>
     <td><%= delivery_quest.reward %></td>

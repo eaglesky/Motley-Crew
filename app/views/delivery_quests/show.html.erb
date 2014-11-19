@@ -4,7 +4,8 @@
       <div><p class="quest_description"><%= @delivery_quest.description %></p></div>
       <div>
 	<p>Reward: <%= @delivery_quest.reward %></p>
-	<p>Quest Giver: <%= @delivery_quest.quest_giver.name %></p>
+	<p>Quest Giver: <%= @delivery_quest.quest_giver ? @delivery_quest.quest_giver.name
+        : "System" %></p>
       </div>
       <% if @delivery_quest.completed %>
       <h2>Quest complete!</h2>
