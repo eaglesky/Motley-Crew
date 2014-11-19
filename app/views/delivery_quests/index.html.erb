@@ -20,11 +20,7 @@
 
 
 
-<%= search_form_for(@search, 
-  #url: search_delivery_quests_path,
-   url: delivery_quests_path,
- #  html: { method: :post }
-   ) do |f| %>
+<%= search_form_for(@search,  url: delivery_quests_path, ) do |f| %>
   
   
   <%= f.condition_fields do |c| %>
@@ -71,20 +67,17 @@
 <!--<table > -->
   
   <tr>
-    <th><%= sort_link @search, :id, "ID", method: :post %></th>
     <th><%= sort_link @search, :title, "Title", method: :post %></th>
     <th><%= sort_link @search, :reward, "Reward" %></th>
     <th><%= sort_link @search, :source, "Source" %></th>
     <th><%= sort_link @search, :destination, "Destination" %></th>
     <th>Quest Giver</th>
-    <th>Quester</th>
     <th><%= sort_link @search, :created_at, "Created Time" %></th>
   </tr>
   
 <% @delivery_quests.each do |delivery_quest| %>
   <tr  onclick="location.href='<%= delivery_quest_path(delivery_quest.id) %>'", 
       style="cursor: pointer">
-    <td><%= delivery_quest.id.to_s %></td>
     <td><%= delivery_quest.title %></td>
     <td><%= delivery_quest.reward %></td>
     <td><%= delivery_quest.source %></td>
@@ -92,8 +85,6 @@
     <td><%= delivery_quest.quest_giver == nil ? 
   "System" : delivery_quest.quest_giver.name %></td>
 
-    <td><%= delivery_quest.quester == nil ? 
-  "Nobody" : delivery_quest.quester.name %></td>
 
     <td><%= time_ago_in_words(delivery_quest.created_at) + " ago" %>
   </tr>
