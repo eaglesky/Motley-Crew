@@ -4,9 +4,14 @@ class DeliveryQuestsController < ApplicationController
   # GET /delivery_quests
   # GET /delivery_quests.json
   def index
-    @search = DeliveryQuest.search(params[:q])
+    query = params[:q]
+    query ||= {}
+    query.merge!({ quester_id_null: 1, quest_giver_id_not_eq: current_user.id, completed_eq: false})
+    @search = DeliveryQuest.search(query)
     
     @delivery_quests = @search.result.paginate(:page => params[:page], :per_page => 10)
+    
+    @search = DeliveryQuest.search(params[:q])
     @search.build_condition if @search.conditions.empty?
   end
 
