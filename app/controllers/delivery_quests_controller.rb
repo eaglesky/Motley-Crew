@@ -6,8 +6,8 @@ class DeliveryQuestsController < ApplicationController
   def index
     query = params[:q]
     query ||= {}
-    query.merge!({ quester_id_null: 1, quest_giver_id_not_eq: current_user.id, completed_eq: false})
-    @search = DeliveryQuest.search(query)
+
+    @search = DeliveryQuest.search(query.merge({ quester_id_null: 1, quest_giver_id_not_eq: current_user.id, completed_eq: false}))
     
     @delivery_quests = @search.result.paginate(:page => params[:page], :per_page => 10)
     
