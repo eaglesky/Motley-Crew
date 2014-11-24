@@ -11,10 +11,16 @@ module ApplicationHelper
 
   def sortable(column, title = nil)
     title ||= column.titleize
-    css_class = column == sort_column ? "current #{sort_direction}" : nil
+  #  css_class = column == sort_column ? "current #{sort_direction}" : nil
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-   
-    link_to title, {:sort => column, :direction => direction}, {:class => css_class}
+    
+    if column == sort_column
+      image_name = direction == "asc" ? "arrow_down.png" : "arrow_up.png"
+      link_to raw("#{title} #{image_tag(image_name)}") ,  {:sort => column, :direction => direction}
+    else
+      link_to title, {:sort => column, :direction => direction}
+    end
+
   end
 
   def link_to_add_fields(name, f, type)
