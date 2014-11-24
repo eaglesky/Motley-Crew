@@ -19,41 +19,11 @@
 -->
 
 
-
-<%= search_form_for(@search,  url: delivery_quests_path, ) do |f| %>
-  
-  
-  <%= f.condition_fields do |c| %>
-    <%= render "condition_fields", f: c %>
-  <% end %>
-
-  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
-
-  <div class = "row">
-  <div class = "col-md-2"><%= f.submit "Search", class: "btn btn-primary" %></div>
-  </div>
- 
-
-<% end %>
-
-
-
 <!--
-<div class="row">
-  <div class="col-md-8">
-    <% if @delivery_quests.any? %>
-      <h3>Quests (<%= @delivery_quests.count %>)</h3>
 
 
-
-      <ol class="quests">
-        <%= render @delivery_quests %>
-      </ol>
-      <%= will_paginate @delivery_quests %>
-    <% end %>
-  </div>
-</div>
 -->
+
 
 <div class="row">
   <div class="col-md-8">
@@ -67,12 +37,12 @@
 <!--<table > -->
   
   <tr>
-    <th><%= sort_link @search, :title, "Title" %></th>
-    <th><%= sort_link @search, :reward, "Reward" %></th>
-    <th><%= sort_link @search, :source, "Source" %></th>
-    <th><%= sort_link @search, :destination, "Destination" %></th>
-    <th>Quest Giver</th>
-    <th><%= sort_link @search, :created_at, "Created Time" %></th>
+    <th><%= sortable "title", "Title"        %>   </th>
+    <th><%= sortable "reward", "Reward"       %>   </th>
+    <th><%= sortable "source", "Source"     %>   </th>    
+    <th><%= sortable "destination", "Destination"     %>   </th>
+    <th><%= sortable "quest_giver", "Quest Giver"     %>   </th>
+    <th><%= sortable "created_at", "Created Time"   %>    </th>
   </tr>
   
 <% @delivery_quests.each do |delivery_quest| %>
