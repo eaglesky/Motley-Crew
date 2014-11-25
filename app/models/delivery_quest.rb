@@ -3,13 +3,13 @@ class DeliveryQuest < ActiveRecord::Base
   belongs_to :quester, :class_name => "User"
 
   
-  def self.simple_search(search, page)
+  def self.simple_search(search)
 
     if search != nil && !search.empty?
-      order('title').where('title LIKE ?', "%#{search}%").paginate(:page => page,:per_page => 10)
+      where('title LIKE ?', "%#{search}%")
 
     else
-      order('id').paginate(page: page, per_page: 10)
+      self.all.all
     
     end
   end

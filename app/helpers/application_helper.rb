@@ -16,9 +16,9 @@ module ApplicationHelper
     
     if column == sort_column
       image_name = direction == "asc" ? "arrow_down.png" : "arrow_up.png"
-      link_to raw("#{title} #{image_tag(image_name)}") ,  {:sort => column, :direction => direction}
+      link_to raw("#{title} #{image_tag(image_name)}") ,  params.merge(:sort => column, :direction => direction, :page => nil)
     else
-      link_to title, {:sort => column, :direction => direction}
+      link_to title, params.merge(:sort => column, :direction => direction, :page => nil)
     end
 
   end

@@ -13,7 +13,7 @@ class DeliveryQuestsController < ApplicationController
     
     # @search = DeliveryQuest.search(params[:q])
     # @search.build_condition if @search.conditions.empty?
-    @delivery_quests = DeliveryQuest.order(sort_column + " " + sort_direction)
+    @delivery_quests = DeliveryQuest.simple_search(params[:search]).order(sort_column + " " + sort_direction)
     .paginate(:page => params[:page], :per_page => 10)
   end
 
