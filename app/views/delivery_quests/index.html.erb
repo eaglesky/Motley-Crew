@@ -2,31 +2,36 @@
 <h1>Quests</h1>
 
 
-<div class="row">
-  
-  <div class="input-group" >
 
-    <%= form_tag delivery_quests_path, :method => 'get', :class => "form-inline" do %>
+    <%= form_tag delivery_quests_path, :method => 'get', :class => "form-horizontal" do %>
 
       <%= hidden_field_tag :direction, params[:direction] %>
       <%= hidden_field_tag :sort, params[:sort] %>
      
-      <%= text_field_tag :search, params[:search] %>
+      <div class="col-xs-4">
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", 
+          placeholder: "Search in title" %>
+         
+          <span class="input-group-btn">
+          <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+          </span>
+
+
+        </div>
+
      
-      <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
-    
-    <% end %>
-  </div>
+
+        <%= link_to "Advanced Search", new_advanced_search_path, class: "top-buffer" %>
+       
+
+      </div>
+
  
-</div>
-
-
-
-<!--
-
-
--->
-
+    <% end %>
+ 
+ 
+    
 
 <div class="row">
   <div class="col-md-8">
