@@ -13,8 +13,16 @@ class DeliveryQuestsController < ApplicationController
     
     # @search = DeliveryQuest.search(params[:q])
     # @search.build_condition if @search.conditions.empty?
-    @delivery_quests = DeliveryQuest.simple_search(params[:search]).order(sort_column + " " + sort_direction)
+
+    if params.has_key?(:session)
+
+      @delivery_quests = DeliveryQuest.search(params[:session]).order(sort_column + " " + sort_direction)
     .paginate(:page => params[:page], :per_page => 10)
+    else
+      @delivery_quests = DeliveryQuest.simple_search(params[:search]).order(sort_column + " " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+    end
+
   end
 
   def update
@@ -55,6 +63,10 @@ class DeliveryQuestsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def new_search
+
   end
 
   private

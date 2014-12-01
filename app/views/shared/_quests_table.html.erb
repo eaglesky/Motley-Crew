@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-8">
+    <% if @delivery_quests.any? %>
+      <h3>Quests (<%= @delivery_quests.count %>)</h3>
+    <% end %>
+  </div>
+</div>
+
+<table id="quests_table" class="table table-condensed table-hover table-bordered table-responsive"> 
+<!--<table > -->
+  
+  <tr>
+    <th><%= sortable "title", "Title"        %>   </th>
+    <th><%= sortable "reward", "Reward"       %>   </th>
+    <th><%= sortable "source", "Source"     %>   </th>    
+    <th><%= sortable "destination", "Destination"     %>   </th>
+    <th><%= sortable "quest_giver", "Quest Giver"     %>   </th>
+    <th><%= sortable "created_at", "Created Time"   %>    </th>
+  </tr>
+  
+<% @delivery_quests.each do |delivery_quest| %>
+  <tr  onclick="location.href='<%= delivery_quest_path(delivery_quest.id) %>'", 
+      style="cursor: pointer">
+    <td><%= delivery_quest.title %></td>
+    <td><%= delivery_quest.reward %></td>
+    <td><%= delivery_quest.source %></td>
+    <td><%= delivery_quest.destination %></td>
+    <td><%= delivery_quest.quest_giver == nil ? 
+  "System" : delivery_quest.quest_giver.name %></td>
+
+
+    <td><%= time_ago_in_words(delivery_quest.created_at) + " ago" %>
+  </tr>
+<% end %>
+</table>
+
+
+
+<%= will_paginate @delivery_quests %>

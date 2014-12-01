@@ -1,0 +1,60 @@
+<h1>Advanced Search</h1>
+
+
+    <%= form_for(:session, :url => delivery_quests_path, :method => :get, :html => {:class => "form-horizontal"}) do |f| %>
+
+ 
+      <div class="form-group">
+        <%= f.label :title, "Title contains:", class: 'control-label col-xs-2'  %>
+        <div class="col-xs-4">
+            <%= f.text_field :title, class: 'form-control' %>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :source, "Source contains:", class: 'control-label col-xs-2'  %>
+        <div class="col-xs-4">
+            <%= f.text_field :source, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :destination, "Destination contains:", class: 'control-label col-xs-2'  %>
+        <div class="col-xs-4">
+            <%= f.text_field :destination, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :reward_min, "Reward range:", class: 'control-label col-xs-2'%>
+        <div class="col-xs-2">
+          <div class="input-group">
+            <span class="input-group-addon">Min</span>
+            <%= f.text_field :reward_min, class: 'form-control' %>
+          </div>
+        </div>
+      
+        <div class="col-xs-2">
+          <div class="input-group">
+            <span class="input-group-addon">Max</span>
+            <%= f.text_field :reward_max, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :quest_giver_name, "Quest giver's name contains:", class: 'control-label col-xs-2'  %>
+        <div class="col-xs-4">
+            <%= f.text_field :quest_giver_name, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-2">
+        <%= f.submit "Search", class: "btn btn-primary" %>
+        </div>
+      </div>
+  
+
+    <% end %>

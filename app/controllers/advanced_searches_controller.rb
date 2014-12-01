@@ -7,7 +7,11 @@ class AdvancedSearchesController < ApplicationController
 
   def create
     @delivery_quests = DeliveryQuest.all.paginate(:page => params[:page], :per_page => 10)
-    redirect_to delivery_quests_path
+    render 'show'
+  end
+
+  def show
+
   end
 
 end
