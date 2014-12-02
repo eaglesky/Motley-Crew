@@ -1,6 +1,9 @@
 class DeliveryQuestsController < ApplicationController
   before_action :require_login
   helper_method :sort_column, :sort_direction
+
+  
+
   # GET /delivery_quests
   # GET /delivery_quests.json
   def index
@@ -16,10 +19,10 @@ class DeliveryQuestsController < ApplicationController
 
     if params.has_key?(:session)
 
-      @delivery_quests = DeliveryQuest.search(params[:session]).order(sort_column + " " + sort_direction)
+      @delivery_quests = DeliveryQuest.search(params[:session], current_user).order(sort_column + " " + sort_direction)
     .paginate(:page => params[:page], :per_page => 10)
     else
-      @delivery_quests = DeliveryQuest.simple_search(params[:search]).order(sort_column + " " + sort_direction)
+      @delivery_quests = DeliveryQuest.simple_search(params[:search], current_user).order(sort_column + " " + sort_direction)
     .paginate(:page => params[:page], :per_page => 10)
     end
 
