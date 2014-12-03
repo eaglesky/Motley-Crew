@@ -1,7 +1,7 @@
 <% provide(:title, 'Quests') %>
 <h1>Quests</h1>
 
-<%= form_tag delivery_quests_path, :method => 'get', :class => "form-horizontal" do %>
+<%= form_tag quests_path, :method => 'get', :class => "form-horizontal" do %>
 
      <%= hidden_field_tag :direction, params[:direction] %>
      <%= hidden_field_tag :sort, params[:sort] %>

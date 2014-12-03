@@ -1,0 +1,16 @@
+<li id="quest-<%= quest.id %>">
+
+  
+  <span class="title"><%= quest.id.to_s + ": " + quest.title %></span>
+  <span class="content">Given by: <%= quest.quest_giver == nil ? 
+  "System" : quest.quest_giver.name %> </span>
+  <span class="content">Accepted by: <%= quest.quester == nil ? 
+  "Nobody" : quest.quester.name %> </span>
+  <span class="content">Reward: <%= quest.reward %> </span>
+  <span class="content">From <%= quest.source %> to <%= quest.destination %>
+  </span>
+  
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(quest.created_at) %> ago.
+  </span>
+</li>

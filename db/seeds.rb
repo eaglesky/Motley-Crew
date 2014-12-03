@@ -18,12 +18,12 @@ end
 
 users = User.order(:id).take(40)
 users.each_with_index do|user, idx|
-  user.posted_deliveries.create!(title: user.name + " title", description: user.name + " quest description", 
+  user.posted_quests.create!(title: user.name + " title", description: user.name + " quest description", 
     reward: idx, source: Faker::Address.street_address, destination: Faker::Address.street_address)
 
 end
 
 for i in 1..50
-  DeliveryQuest.create!(title: "System quest #{i}", description: "Description of system quest #{i}",
+  Quest.create!(title: "System quest #{i}", description: "Description of system quest #{i}",
     reward: "0$", source: "TBD", destination: "TBD")
 end

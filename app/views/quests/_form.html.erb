@@ -1,10 +1,10 @@
-<%= form_for(@delivery_quest) do |f| %>
-  <% if @delivery_quest.errors.any? %>
+<%= form_for(@quest) do |f| %>
+  <% if @quest.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@delivery_quest.errors.count, "error") %> prohibited this delivery_quest from being saved:</h2>
+      <h2><%= pluralize(@quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
 
       <ul>
-      <% @delivery_quest.errors.full_messages.each do |message| %>
+      <% @quest.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

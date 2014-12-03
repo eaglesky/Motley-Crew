@@ -1,26 +1,26 @@
-<h1><%= @delivery_quest.title %></h1>
+<h1><%= @quest.title %></h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div><p class="quest_description"><%= @delivery_quest.description %></p></div>
+      <div><p class="quest_description"><%= @quest.description %></p></div>
       <div>
-	<p>Reward: <%= @delivery_quest.reward %></p>
-	<p>Quest Giver: <%= @delivery_quest.quest_giver ? @delivery_quest.quest_giver.name
+	<p>Reward: <%= @quest.reward %></p>
+	<p>Quest Giver: <%= @quest.quest_giver ? @quest.quest_giver.name
         : "System" %></p>
       </div>
-      <% if @delivery_quest.completed %>
+      <% if @quest.completed %>
       <h2>Quest complete!</h2>
       <% else %>
-      <% if @delivery_quest.quester && @delivery_quest.quester != current_user %>
+      <% if @quest.quester && @quest.quester != current_user %>
       <p>Someone else has already accepted this quest</p>
-      <% elsif @delivery_quest.quester %>
+      <% elsif @quest.quester %>
       <!-- TODO -->
-      <%= form_for @delivery_quest do |f| %>
+      <%= form_for @quest do |f| %>
       <%= f.hidden_field :completed, value: "true" %>
       <%= f.submit "Complete Quest", class: "btn btn-success" %>
       <% end %>	
       <% else %>
       <div>
-	  <%= form_for @delivery_quest do |f| %>
+	  <%= form_for @quest do |f| %>
 	  <%= f.hidden_field :quester_id, value: current_user.id %>
 	  <%= f.submit "Accept Quest", class: "btn btn-primary" %>
 	  <% end %>
