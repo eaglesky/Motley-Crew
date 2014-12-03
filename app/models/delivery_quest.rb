@@ -6,17 +6,7 @@ class DeliveryQuest < ActiveRecord::Base
 
   def self.simple_search(search, current_user_obj)
 
-    quests = DeliveryQuest.where.not(completed: true)
-    quests = quests.where(quester_id: nil)
-    
-
-
-  #  quests = quests.where.not(quest_giver_id: current_user_obj.id)
-    quests = quests.where('(quest_giver_id IS ?) OR (quest_giver_id != ?)', nil, current_user_obj.id)
-    
-    
-    quests_system = quests.where('title LIKE ?', "%system%")
-   # debugger
+    quests = default_search(current_user_obj)
 
     if search != nil && !search.empty?
       quests.where('title LIKE ?', "%#{search}%")
@@ -30,9 +20,7 @@ class DeliveryQuest < ActiveRecord::Base
 
   def self.search(search_options, current_user_obj)
 
-    quests = DeliveryQuest.where.not(completed: true)
-    quests = quests.where.not(quest_giver_id: current_user_obj.id)
-    quests = quests.where(quester_id: nil)
+    quests = default_search(current_user_obj)
 
     quests = quests.where('title LIKE ?', "%#{search_options[:title]}%") if search_options[:title].present?
     quests = quests.where('source LIKE ?', "%#{search_options[:source]}%") if search_options[:source].present?
@@ -40,6 +28,16 @@ class DeliveryQuest < ActiveRecord::Base
 
     quests
 
+  end
+
+  private
+
+  def self.default_search(current_user_obj)
+    quests = DeliveryQuest.where.not(completed: true)
+    quests = quests.where(quester_id: nil)
+  #  quests = quests.where('(quest_giver_id IS ?) OR (quest_giver_id != ?)', nil, current_user_obj.id)
+    quests = quests.where.not(quest_giver_id: current_user_obj.id)
+    quests
   end
 
 end

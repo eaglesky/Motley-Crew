@@ -18,12 +18,25 @@ class DeliveryQuestsController < ApplicationController
     # @search.build_condition if @search.conditions.empty?
 
     if params.has_key?(:session)
+      
+        if sort_column != 'quest_giver_id'
+          @delivery_quests = DeliveryQuest.search(params[:session], current_user).order(sort_column + " " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+        else
+          @delivery_quests = DeliveryQuest.search(params[:session], current_user).joins("JOIN users ON users.id = delivery_quests.quest_giver_id").order("users.name " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+        end
 
-      @delivery_quests = DeliveryQuest.search(params[:session], current_user).order(sort_column + " " + sort_direction)
-    .paginate(:page => params[:page], :per_page => 10)
     else
-      @delivery_quests = DeliveryQuest.simple_search(params[:search], current_user).order(sort_column + " " + sort_direction)
+
+      if sort_column != 'quest_giver_id'
+        @delivery_quests = DeliveryQuest.simple_search(params[:search], current_user).order(sort_column + " " + sort_direction)
     .paginate(:page => params[:page], :per_page => 10)
+      else
+        @delivery_quests = DeliveryQuest.simple_search(params[:search], current_user).joins("JOIN users ON users.id = delivery_quests.quest_giver_id").order("users.name " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+
+      end
     end
 
   end
