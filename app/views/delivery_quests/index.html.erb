@@ -1,99 +1,34 @@
 <% provide(:title, 'Quests') %>
 <h1>Quests</h1>
 
-<!--
-<div class="row">
-  
-  <div class="input-group" >
+<%= form_tag delivery_quests_path, :method => 'get', :class => "form-horizontal" do %>
 
-    <%= form_tag quests_path, :method => 'get', :class => "form-inline" do %>
+     <%= hidden_field_tag :direction, params[:direction] %>
+     <%= hidden_field_tag :sort, params[:sort] %>
      
-      <%= text_field_tag :search, params[:search] %>
+      <div class="col-xs-4">
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", 
+          placeholder: "Search in title" %>
+         
+          <span class="input-group-btn">
+          <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+          </span>
+
+
+        </div>
+
      
-      <%= submit_tag "Search", :name => nil, class: "btn btn-primary" "glyphicon glyphicon-search"%>
-    
-    <% end %>
-  </div>
+
+        <%= link_to "Advanced Search", new_search_path, class: "top-buffer" %>
+       
+
+      </div>
+
  
-</div>
--->
-
-
-
-<%= search_form_for(@search,  url: delivery_quests_path, ) do |f| %>
-  
-  
-  <%= f.condition_fields do |c| %>
-    <%= render "condition_fields", f: c %>
-  <% end %>
-
-  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
-
-  <div class = "row">
-  <div class = "col-md-2"><%= f.submit "Search", class: "btn btn-primary"%>
-   
-  </div>
-
-  </div>
+<% end %>
+ 
  
 
-<% end %>
 
-
-
-<!--
-<div class="row">
-  <div class="col-md-8">
-    <% if @delivery_quests.any? %>
-      <h3>Quests (<%= @delivery_quests.count %>)</h3>
-
-
-
-      <ol class="quests">
-        <%= render @delivery_quests %>
-      </ol>
-      <%= will_paginate @delivery_quests %>
-    <% end %>
-  </div>
-</div>
--->
-
-<div class="row">
-  <div class="col-md-8">
-    <% if @delivery_quests.any? %>
-      <h3>Quests (<%= @delivery_quests.count %>)</h3>
-    <% end %>
-  </div>
-</div>
-
-<table id="quests_table" class="table table-condensed table-hover table-bordered table-responsive"> 
-<!--<table > -->
-  
-  <tr>
-    <th><%= sort_link @search, :title, "Title" %></th>
-    <th><%= sort_link @search, :reward, "Reward" %></th>
-    <th><%= sort_link @search, :source, "Source" %></th>
-    <th><%= sort_link @search, :destination, "Destination" %></th>
-    <th>Quest Giver</th>
-    <th><%= sort_link @search, :created_at, "Created Time" %></th>
-  </tr>
-  
-<% @delivery_quests.each do |delivery_quest| %>
-  <tr  onclick="location.href='<%= delivery_quest_path(delivery_quest.id) %>'", 
-      style="cursor: pointer">
-    <td><%= delivery_quest.title %></td>
-    <td><%= delivery_quest.reward %></td>
-    <td><%= delivery_quest.source %></td>
-    <td><%= delivery_quest.destination %></td>
-    <td><%= delivery_quest.quest_giver == nil ? 
-  "System" : delivery_quest.quest_giver.name %></td>
-
-
-    <td><%= time_ago_in_words(delivery_quest.created_at) + " ago" %>
-  </tr>
-<% end %>
-</table>
-
-
-
-<%= will_paginate @delivery_quests %>
+<%= render 'shared/quests_table' %>

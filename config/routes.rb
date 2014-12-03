@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   
   resources :users
   
-
+  resources :advanced_searches
 
   
-
+  get 'new_search' => 'delivery_quests#new_search'
+  post 'new_search' => 'delivery_quests#index'
+  
   get 'sessions/new'
 
   root 'main_static_pages#home'

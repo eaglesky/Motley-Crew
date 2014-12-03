@@ -17,9 +17,9 @@ for i in 1..50
 end
 
 users = User.order(:id).take(40)
-users.each do|user|
+users.each_with_index do|user, idx|
   user.posted_deliveries.create!(title: user.name + " title", description: user.name + " quest description", 
-    reward: "10$", source: Faker::Address.street_address, destination: Faker::Address.street_address)
+    reward: idx, source: Faker::Address.street_address, destination: Faker::Address.street_address)
 
 end
 

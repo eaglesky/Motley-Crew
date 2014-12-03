@@ -1,18 +1,44 @@
 class DeliveryQuestsController < ApplicationController
   before_action :require_login
+  helper_method :sort_column, :sort_direction
+
+  
 
   # GET /delivery_quests
   # GET /delivery_quests.json
   def index
-    query = params[:q]
-    query ||= {}
+    # query = params[:q]
+    # query ||= {}
 
-    @search = DeliveryQuest.search(query.merge({ quester_id_null: 1, quest_giver_id_not_eq: current_user.id, completed_eq: false}))
+    # @search = DeliveryQuest.search(query.merge({ quester_id_null: 1, quest_giver_id_not_eq: current_user.id, completed_eq: false}))
     
-    @delivery_quests = @search.result.paginate(:page => params[:page], :per_page => 10)
+    # @delivery_quests = @search.result.paginate(:page => params[:page], :per_page => 10)
     
-    @search = DeliveryQuest.search(params[:q])
-    @search.build_condition if @search.conditions.empty?
+    # @search = DeliveryQuest.search(params[:q])
+    # @search.build_condition if @search.conditions.empty?
+
+    if params.has_key?(:session)
+      
+        if sort_column != 'quest_giver_id'
+          @delivery_quests = DeliveryQuest.search(params[:session], current_user).order(sort_column + " " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+        else
+          @delivery_quests = DeliveryQuest.search(params[:session], current_user).joins("JOIN users ON users.id = delivery_quests.quest_giver_id").order("users.name " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+        end
+
+    else
+
+      if sort_column != 'quest_giver_id'
+        @delivery_quests = DeliveryQuest.simple_search(params[:search], current_user).order(sort_column + " " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+      else
+        @delivery_quests = DeliveryQuest.simple_search(params[:search], current_user).joins("JOIN users ON users.id = delivery_quests.quest_giver_id").order("users.name " + sort_direction)
+    .paginate(:page => params[:page], :per_page => 10)
+
+      end
+    end
+
   end
 
   def update
@@ -55,6 +81,10 @@ class DeliveryQuestsController < ApplicationController
     end
   end
 
+  def new_search
+
+  end
+
   private
   def new_quest_params
     params.require(:delivery_quest).permit(:title, :description, :source, :destination, :reward)
@@ -62,6 +92,16 @@ class DeliveryQuestsController < ApplicationController
 
   def update_quest_params
     params.require(:delivery_quest).permit(:quester_id, :completed)
+  end
+
+
+  
+  def sort_column
+    DeliveryQuest.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
  
 end

@@ -11,20 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118051244) do
+ActiveRecord::Schema.define(version: 20141203070329) do
+
+  create_table "advanced_searches", force: true do |t|
+    t.string   "title"
+    t.string   "reward_min"
+    t.string   "reward_max"
+    t.string   "quest_giver_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "delivery_quests", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "reward"
+    t.integer  "reward",         limit: 255
     t.integer  "quest_giver_id"
     t.integer  "quester_id"
     t.string   "source"
     t.string   "destination"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "completed",      default: false
+    t.boolean  "completed",                  default: false
   end
+
+  create_table "microposts", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
+
+  create_table "single_tasks", force: true do |t|
+    t.integer  "requester_id"
+    t.integer  "receiver_id"
+    t.text     "description"
+    t.text     "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "single_tasks", ["receiver_id"], name: "index_single_tasks_on_receiver_id"
+  add_index "single_tasks", ["requester_id"], name: "index_single_tasks_on_requester_id"
+
+  create_table "tasks", force: true do |t|
+    t.integer  "requester_id"
+    t.integer  "receiver_id"
+    t.text     "description"
+    t.text     "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["receiver_id"], name: "index_tasks_on_receiver_id"
+  add_index "tasks", ["requester_id"], name: "index_tasks_on_requester_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
