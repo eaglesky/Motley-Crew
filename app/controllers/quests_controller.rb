@@ -46,17 +46,6 @@ class QuestsController < ApplicationController
 
     redirect_to quest_path(@quest) unless !@quest.completed
 
-    fields = update_quest_params
-    if fields[:quester_id] && (Integer(fields[:quester_id]) == current_user.id)
-      @quest.quester = current_user
-    end
-
-    if fields[:completed]
-      @quest.completed = true
-    end
-
-    @quest.save
-
     redirect_to quest_path(@quest)
   end
 

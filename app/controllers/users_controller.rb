@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @posted_quests = Quest.where(quest_giver: @user)
-    @accepted_quests = Quest.where(quester: @user, completed: false)
+    @accepted_quest_roles = @user.quest_roles
   end
 
   def create

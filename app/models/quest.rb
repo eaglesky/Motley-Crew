@@ -1,6 +1,7 @@
 class Quest < ActiveRecord::Base
-  belongs_to :quest_giver, :class_name => "User"   
-  belongs_to :quester, :class_name => "User"
+  belongs_to :quest_giver, :class_name => "User"
+  has_many :quest_roles
+
   validates :quest_giver, :presence => true
   
 
@@ -35,8 +36,6 @@ class Quest < ActiveRecord::Base
 
   def self.default_search(current_user_obj)
     quests = Quest.where.not(completed: true)
-    quests = quests.where(quester_id: nil)
-  #  quests = quests.where('(quest_giver_id IS ?) OR (quest_giver_id != ?)', nil, current_user_obj.id)
     quests = quests.where.not(quest_giver_id: current_user_obj.id)
     quests
   end

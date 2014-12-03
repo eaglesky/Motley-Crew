@@ -10,22 +10,32 @@
       <% if @quest.completed %>
       <h2>Quest complete!</h2>
       <% else %>
-      <% if @quest.quester && @quest.quester != current_user %>
-      <p>Someone else has already accepted this quest</p>
-      <% elsif @quest.quester %>
-      <!-- TODO -->
-      <%= form_for @quest do |f| %>
-      <%= f.hidden_field :completed, value: "true" %>
-      <%= f.submit "Complete Quest", class: "btn btn-success" %>
-      <% end %>	
-      <% else %>
-      <div>
-	  <%= form_for @quest do |f| %>
-	  <%= f.hidden_field :quester_id, value: current_user.id %>
-	  <%= f.submit "Accept Quest", class: "btn btn-primary" %>
-	  <% end %>
-      </div>
-      <% end %>
+      <table class="quest_roles">
+	<tr><th>Role</th><th>Status</th></tr>
+	<tr>
+          <% @quest.quest_roles.each do |role| %>
+	      <td class="quest_role_name"><%= @role.name %></td>
+	      <% if @role.completed %>
+	         <td class="quest_role_status">Complete</td>
+	      <% else %>
+	         <td class="quest_role_status">
+                 <% if @role.user && @role.user != current_user %>
+                     Filled
+                 <% elsif @role.user %>
+                     <%= form_for @role do |f| %>
+                     <%= f.hidden_field :completed, value: "true" %>
+                     <%= f.submit "Complete Quest", class: "btn btn-success" %>
+                     <% end %>
+                 <% else %>
+                     	<%= form_for @role do |f| %>
+                     	<%= f.hidden_field :user_id, value: current_user.id %>
+                     	<%= f.submit "Accept Quest", class: "btn btn-primary" %>
+                     	<% end %>
+                 <% end %>
+		 </td>
+	      <% end %>
+          <% end %>
+	</tr>
       <% end %>
     </div>
   </div>

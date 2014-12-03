@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203205505) do
+ActiveRecord::Schema.define(version: 20141203223540) do
+
+  create_table "quest_roles", force: true do |t|
+    t.string   "name"
+    t.integer  "quest_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "completed"
+  end
 
   create_table "quests", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "reward",         limit: 255
     t.integer  "quest_giver_id"
-    t.integer  "quester_id"
     t.string   "source"
     t.string   "destination"
     t.datetime "created_at"
