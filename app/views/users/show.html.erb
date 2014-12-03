@@ -1,6 +1,8 @@
-<% provide(:title, @user.name) %>
+<!DOCTYPE html>
+<html lang="en">
+<div class="container-fluid">
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-6">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
@@ -8,34 +10,42 @@
    
       </h1>
     </section>
+</aside>
+</div>
+<div class="row">
+  <div class="col-md-6">
     <section class="posted_quests">
       <h2>Posted Quests</h2>
       <% if @posted_quests.any? %>
       <ul>
-	<% @posted_quests.each do |quest| %>
-	<li><a href="<%= delivery_quest_url(quest) %>"><%= quest.title %></a></li>
-	<% end %>
+  <% @posted_quests.each do |quest| %>
+  <li><a href="<%= delivery_quest_url(quest) %>"><%= quest.title %></a></li>
+  <% end %>
       </ul>
       <% else %>
       <span> None... </span>
       <% end %>
 
-      <a href="<%= new_delivery_quest_path %>" class="btn btn-success">Post a new quest</a>
+      <a href="<%= new_delivery_quest_path %>" class="btn btn-primary">Post a new quest</a>
     </section>
+  </div>
 
+  <div class="col-md-6">
     <section class="accepted_quests">
       <h2>Active Quests</h2>
       <% if @accepted_quests.any? %>
       <ul>
-	<% @accepted_quests.each do |quest| %>
-	<li><a href="<%= delivery_quest_url(quest) %>"><%= quest.title %></a></li>
-	<% end %>
+  <% @accepted_quests.each do |quest| %>
+  <li><a href="<%= delivery_quest_url(quest) %>"><%= quest.title %></a></li>
+  <% end %>
       </ul>
       <% else %>
       <span> None... </span>
       <% end %>
-      <a href="<%= delivery_quests_path %>" class="btn btn-success">Find a quest!</a>
+      <a href="<%= delivery_quests_path %>" class="btn btn-primary">Find a quest!</a>
     </section>
-
-  </aside>
+  </div>
 </div>
+</div>
+</html>
+
