@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203223540) do
+ActiveRecord::Schema.define(version: 20141204050411) do
 
   create_table "advanced_searches", force: true do |t|
     t.string   "title"
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20141203223540) do
   create_table "quests", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "reward",         limit: 255
+    t.integer  "reward",         limit: 8
     t.integer  "quest_giver_id"
     t.string   "source"
     t.string   "destination"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "completed",                  default: false
+    t.boolean  "completed",                default: false
   end
 
   create_table "single_tasks", force: true do |t|
