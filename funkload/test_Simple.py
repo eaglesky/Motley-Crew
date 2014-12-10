@@ -26,10 +26,11 @@ class Simple(FunkLoadTestCase):
         
         auth_token = extract_token(self.getBody(), 'name="authenticity_token" type="hidden" value="', '"')
       #  email = Lipsum().getUniqWord() + "@" + Lipsum().getWord() + ".com"
-        email = 'test@example.com'
-
+        email = 'test3@example.com'
+        name = 'test3'
         self.post(self.server_url + "/users",
-        params=[['user[email]', email],
+        params=[ ['user[name]', name],
+          ['user[email]', email],
           ['user[password]', '12345678'],
           ['user[password_confirmation]', '12345678'],
           ['authenticity_token', auth_token],
