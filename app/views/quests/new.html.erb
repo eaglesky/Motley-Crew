@@ -76,14 +76,14 @@
         var newlatlong1 = new google.maps.LatLng(place1.geometry.location.lat(),place1.geometry.location.lng());
         map1.setCenter(newlatlong1);
         marker1.setPosition(newlatlong1);
-        map1.setZoom(12);
+        map1.setZoom(14);
     });
     google.maps.event.addListener(autocomplete2, 'place_changed', function () {
         place2 = autocomplete2.getPlace();
         var newlatlong2 = new google.maps.LatLng(place2.geometry.location.lat(),place2.geometry.location.lng());
         map2.setCenter(newlatlong2);
         marker2.setPosition(newlatlong2);
-        map2.setZoom(12);
+        map2.setZoom(14);
     });
 
     // Set the centers of the map upon receiving current geolocation
@@ -93,7 +93,7 @@
         map2.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
         map2.setZoom(12);
     }
-    
+
     //Reset the input box on click
     input1.addEventListener('click', function(){
         input1.value = "";
