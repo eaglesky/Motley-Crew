@@ -33,10 +33,10 @@
   <div class="col-md-6">
     <section class="accepted_quests">
       <h2>Active Quests</h2>
-      <% if @accepted_quest_roles.any? %>
+      <% if @accepted_quests.any? %>
       <ul>
-  <% @accepted_quest_roles.each do |quest_role| %>
-  <li><a href="<%= quest_url(quest_role.quest) %>"><%= quest_role.quest.title %></a></li>
+  <% @accepted_quests.each do |quest| %>
+  <li><a href="<%= quest_url(quest) %>"><%= quest.title %></a></li>
   <% end %>
       </ul>
       <% else %>
