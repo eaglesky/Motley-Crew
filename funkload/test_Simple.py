@@ -3,14 +3,18 @@
 
 $Id$
 """
+
+import pdb
+
 import unittest
 from random import random, randint
 from funkload.FunkLoadTestCase import FunkLoadTestCase
 from funkload.utils import extract_token
 from funkload.Lipsum import Lipsum
-import pdb
+
 import socket
 socket.setdefaulttimeout(10)
+from math import ceil
 
 class Simple(FunkLoadTestCase):
     """This test use a configuration file Simple.conf."""
@@ -106,8 +110,24 @@ class Simple(FunkLoadTestCase):
         description="Do a new advanced search")
         self.assert_("Search in title" in self.getBody(), "Wrong quest page")
 
+        # Test selecting a quest on a random page and viewing its content
+        self.get(server_url + "/quests", description="Go back to the basic quest browsing page")
+        quest_total = extract_token(self.getBody(), '<h3>Quests (', ')')
+        quest_total_num = int(quest_total)
+        pages_total_num = int(ceil(quest_total_num / 10.0))
+        page_num = randint(1, pages_total_num)
+        self.get(server_url + "/quests?page=" + str(page_num), 
+            description="Get the random page (page " + str(page_num) +")")
 
+        assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
+        if page_num == 1 :
+            assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
+        self.assert_(assert_active_str in self.getBody(),
+         "Error when switching to page " + str(page_num))
 
+        quest_id_path = extract_token(self.getBody(), 'onclick="location.href=', '"')
+        quest_id_path = quest_id_path[1:-1]
+        self.get(server_url + quest_id_path, description="Select the topest quest on the current page")
 
 
 
