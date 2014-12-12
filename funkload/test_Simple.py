@@ -52,8 +52,8 @@ class Simple(FunkLoadTestCase):
         auth_token_quest = extract_token(self.getBody(), 'name="authenticity_token" type="hidden" value="', '"')
         title = Lipsum().getSubject(uniq=True)
         description = Lipsum().getMessage()
-        source = Lipsum().getSentence()
-        destination = Lipsum().getSentence()
+        source = Lipsum().getAddress()
+        destination = Lipsum().getAddress()
         reward = randint(1, 10000)
 
         self.post(self.server_url + "/quests",
@@ -77,10 +77,41 @@ class Simple(FunkLoadTestCase):
         self.assert_("Search in title" in self.getBody(), "Wrong quest page")
 
         # Test sorting (only on foreign key)
-        self.get(server_url + "/quests?direction=asc&sort=quest_giver_id", 
-          description="Sort by quest giver")
+        sorted_url = server_url + "/quests?direction=asc&sort=quest_giver_id"
+        self.get(sorted_url, description="Sort by quest giver")
         test_arrow_up = 'Quest Giver <img alt="Arrow up"'
         self.assert_(test_arrow_up in self.getBody(), "Error when sorting by quest giver")
+
+        # Test basic search (by title)
+        basic_search_title = Lipsum().getUniqWord(length_min=1, length_max=10)
+        self.get(sorted_url + "&search=" + basic_search_title, 
+          description="Search for " + basic_search_title + " in title")
+
+        # Test advanced search
+        self.get(server_url + "/new_search", description="Get advanced search page")
+        self.assert_("Title contains" in self.getBody(), "Error when loading advanced-search page")
+
+        search_title = Lipsum().getUniqWord(length_min=1, length_max=10)
+        search_source = Lipsum().getAddress()
+        search_destination = Lipsum().getAddress()
+        search_reward_min = randint(1, 10000)
+        search_reward_max = randint(search_reward_min, 10000)
+        self.get(server_url + "/quests",
+        params=[['session[title]', search_title],
+        ['session[source]', search_source],
+        ['session[destination]', search_destination],
+        ['session[reward_min]', search_reward_min], 
+        ['session[reward_max]', search_reward_max],
+        ['commit', 'Search']],
+        description="Do a new advanced search")
+        self.assert_("Search in title" in self.getBody(), "Wrong quest page")
+
+
+
+
+
+
+
 
         self.get(server_url + "/login", description="Get log-in url")
         
