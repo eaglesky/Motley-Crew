@@ -9,6 +9,8 @@ from funkload.FunkLoadTestCase import FunkLoadTestCase
 from funkload.utils import extract_token
 from funkload.Lipsum import Lipsum
 import pdb
+import socket
+socket.setdefaulttimeout(10)
 
 class Simple(FunkLoadTestCase):
     """This test use a configuration file Simple.conf."""
