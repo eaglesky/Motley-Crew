@@ -1,29 +1,386 @@
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="001" type="get" result="Successful" url="" code="200" description="Get root url" time="1418412806.21" duration="0.18455696106" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="002" type="link" result="Successful" url="/bootstrap-table/1.3.0/bootstrap-table.min.css" code="200" description="" time="1418412806.39" duration="0.038587808609" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="003" type="link" result="Successful" url="/assets/locations.css?body=1" code="200" description="" time="1418412806.43" duration="0.0101900100708" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="004" type="link" result="Successful" url="/assets/main_static_pages.css?body=1" code="200" description="" time="1418412806.44" duration="0.00694417953491" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="005" type="link" result="Successful" url="/assets/my_custom.css?body=1" code="200" description="" time="1418412806.45" duration="0.0150661468506" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="006" type="link" result="Successful" url="/assets/quests.css?body=1" code="200" description="" time="1418412806.46" duration="0.00695204734802" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="007" type="link" result="Successful" url="/assets/scaffolds.css?body=1" code="200" description="" time="1418412806.47" duration="0.0121638774872" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="008" type="link" result="Successful" url="/assets/sessions.css?body=1" code="200" description="" time="1418412806.48" duration="0.00901007652283" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="009" type="link" result="Successful" url="/assets/users.css?body=1" code="200" description="" time="1418412806.49" duration="0.00970196723938" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="010" type="link" result="Successful" url="/assets/application.css?body=1" code="200" description="" time="1418412806.5" duration="0.01047706604" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="002" number="001" type="get" result="Successful" url="/signup" code="200" description="Get sign-up url" time="1418412806.52" duration="0.183163166046" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="003" number="001" type="post" result="Successful" url="/users" code="302" description="Create New User" time="1418412806.71" duration="0.355540990829" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="003" number="002" type="get" result="Successful" url="/profile" code="200" description="" time="1418412807.06" duration="0.183475017548" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="003" number="003" type="image" result="Successful" url="/avatar/85de832be680864741f99aabb6479c99" code="200" description="" time="1418412807.25" duration="0.555800914764" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="004" number="001" type="get" result="Successful" url="/quests/new" code="200" description="Get new-quest page" time="1418412807.81" duration="0.186404943466" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="005" number="001" type="post" result="Successful" url="/quests" code="302" description="Create New Quest" time="1418412808.0" duration="0.228772163391" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="005" number="002" type="get" result="Successful" url="/profile" code="200" description="" time="1418412808.23" duration="0.181598901749" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="006" number="001" type="get" result="Successful" url="/quests" code="200" description="Get quests url" time="1418412808.42" duration="0.189131975174" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="006" number="002" type="image" result="Successful" url="/assets/arrow_down.png" code="200" description="" time="1418412808.62" duration="0.0275528430939" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="007" number="001" type="get" result="Successful" url="/quests?direction=asc&amp;sort=quest_giver_id" code="200" description="Sort by quest giver" time="1418412808.65" duration="0.198395967484" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="007" number="002" type="image" result="Successful" url="/assets/arrow_up.png" code="200" description="" time="1418412808.85" duration="0.012579202652" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="008" number="001" type="get" result="Successful" url="/quests?direction=asc&amp;sort=quest_giver_id&amp;search=nuvmz8" code="200" description="Search for nuvmz8 in title" time="1418412808.87" duration="0.187824010849" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="009" number="001" type="get" result="Successful" url="/new_search" code="200" description="Get advanced search page" time="1418412809.06" duration="0.183635950089" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="010" number="001" type="get" result="Successful" url="/quests?session%5Btitle%5D=n&amp;session%5Bsource%5D=91+rue+Argentatus+oleum+tinctorius%0A99153+Rhiza+arctos&amp;session%5Bdestination%5D=71+rue+Pachys%0A99553+Diplo&amp;session%5Breward_min%5D=5179&amp;session%5Breward_max%5D=5535&amp;commit=Search" code="200" description="Do a new advanced search" time="1418412809.25" duration="0.206619024277" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="011" number="001" type="get" result="Successful" url="/quests" code="200" description="Go back to the basic quest browsing page" time="1418412809.46" duration="0.195960998535" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="012" number="001" type="get" result="Successful" url="/quests?page=3" code="200" description="Get the random page (page 3)" time="1418412809.66" duration="0.196307897568" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="013" number="001" type="get" result="Successful" url="/quests/34" code="200" description="Select the topest quest on the current page" time="1418412809.88" duration="0.173549890518" />
-<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="014" number="001" type="get" result="Successful" url="/login" code="200" description="Get log-in url" time="1418412810.05" duration="0.252954006195" />
-<testResult cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path"  time="1418412806.21" result="Successful" steps="14" duration="4.10923910141" connection_duration="4.00291800499" requests="28" pages="14" xmlrpc="0" redirects="2" images="3" links="9" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="001" type="get" result="Successful" url="" code="200" description="Get root url" time="1418416020.15" duration="0.169347047806" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="002" type="link" result="Successful" url="/bootstrap-table/1.3.0/bootstrap-table.min.css" code="200" description="" time="1418416020.32" duration="0.347028017044" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="003" type="link" result="Successful" url="/assets/locations.css?body=1" code="200" description="" time="1418416020.66" duration="0.0156211853027" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="004" type="link" result="Successful" url="/assets/main_static_pages.css?body=1" code="200" description="" time="1418416020.68" duration="0.0157630443573" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="005" type="link" result="Successful" url="/assets/my_custom.css?body=1" code="200" description="" time="1418416020.7" duration="0.0171089172363" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="006" type="link" result="Successful" url="/assets/quests.css?body=1" code="200" description="" time="1418416020.71" duration="0.00702095031738" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="007" type="link" result="Successful" url="/assets/scaffolds.css?body=1" code="200" description="" time="1418416020.72" duration="0.0099470615387" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="008" type="link" result="Successful" url="/assets/sessions.css?body=1" code="200" description="" time="1418416020.73" duration="0.00887107849121" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="009" type="link" result="Successful" url="/assets/users.css?body=1" code="200" description="" time="1418416020.74" duration="0.0094780921936" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="001" number="010" type="link" result="Successful" url="/assets/application.css?body=1" code="200" description="" time="1418416020.75" duration="0.021152973175" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="002" number="001" type="get" result="Successful" url="/signup" code="200" description="Get sign-up url" time="1418416020.78" duration="0.163440942764" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="003" number="001" type="post" result="Successful" url="/users" code="302" description="Create New User" time="1418416020.94" duration="0.306473016739" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="003" number="002" type="get" result="Successful" url="/profile" code="200" description="" time="1418416021.25" duration="0.177952051163" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="003" number="003" type="image" result="Successful" url="/avatar/bcb198f4d8127a3ba36ee14bea247be6" code="200" description="" time="1418416021.44" duration="0.555618047714" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="004" number="001" type="get" result="Successful" url="/quests/new" code="200" description="Get new-quest page" time="1418416021.99" duration="0.184362888336" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="005" number="001" type="post" result="Successful" url="/quests" code="302" description="Create New Quest" time="1418416022.18" duration="0.255150794983" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="005" number="002" type="get" result="Successful" url="/profile" code="200" description="" time="1418416022.44" duration="0.177803993225" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="006" number="001" type="get" result="Successful" url="/quests" code="200" description="Get quests url" time="1418416022.62" duration="0.195280790329" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="006" number="002" type="image" result="Successful" url="/assets/arrow_down.png" code="200" description="" time="1418416022.82" duration="0.0113120079041" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="007" number="001" type="get" result="Successful" url="/quests?direction=asc&amp;sort=quest_giver_id" code="200" description="Sort by quest giver" time="1418416022.84" duration="0.191318035126" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="007" number="002" type="image" result="Successful" url="/assets/arrow_up.png" code="200" description="" time="1418416023.03" duration="0.00872492790222" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="008" number="001" type="get" result="Successful" url="/quests?direction=asc&amp;sort=quest_giver_id&amp;search=uggo56" code="200" description="Search for uggo56 in title" time="1418416023.05" duration="0.182164907455" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="009" number="001" type="get" result="Successful" url="/new_search" code="200" description="Get advanced search page" time="1418416023.24" duration="0.172854185104" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="010" number="001" type="get" result="Successful" url="/quests?session%5Btitle%5D=3zom61m9b&amp;session%5Bsource%5D=18+avenue+Argentatus+deca+indicus%0A99846+Variabilis&amp;session%5Bdestination%5D=98+boulevard+Ad+lutea%0A99414+Rhytis+protos&amp;session%5Breward_min%5D=2885&amp;session%5Breward_max%5D=4554&amp;commit=Search" code="200" description="Do a new advanced search" time="1418416023.42" duration="0.174499034882" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="011" number="001" type="get" result="Successful" url="/quests" code="200" description="Go back to the basic quest browsing page" time="1418416023.6" duration="0.194865942001" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="012" number="001" type="get" result="Successful" url="/quests?page=1" code="200" description="Get the random page (page 1)" time="1418416023.8" duration="0.194666147232" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="013" number="001" type="get" result="Successful" url="/quests/60" code="200" description="Select the topest quest on the current page" time="1418416024.01" duration="0.170745134354" />
+<response cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path" step="014" number="001" type="delete" result="Failure" url="/logout" code="422" description="Test user log-out" time="1418416024.18" duration="0.0441539287567">
+  <headers>
+    <header name="content-length" value="15167" />
+    <header name="connection" value="close" />
+    <header name="x-request-id" value="742c395b-0711-4235-9a1b-af487a18b7b4" />
+    <header name="server" value="WEBrick/1.3.1 (Ruby/2.1.3/2014-09-19)" />
+    <header name="x-runtime" value="0.036969" />
+    <header name="date" value="Fri, 12 Dec 2014 20:27:04 GMT" />
+    <header name="content-type" value="text/html; charset=utf-8" />
+  </headers>
+  <body><![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Action Controller: Exception caught</title>
+  <style>
+    body {
+      background-color: #FAFAFA;
+      color: #333;
+      margin: 0px;
+    }
+
+    body, p, ol, ul, td {
+      font-family: helvetica, verdana, arial, sans-serif;
+      font-size:   13px;
+      line-height: 18px;
+    }
+
+    pre {
+      font-size: 11px;
+      white-space: pre-wrap;
+    }
+
+    pre.box {
+      border: 1px solid #EEE;
+      padding: 10px;
+      margin: 0px;
+      width: 958px;
+    }
+
+    header {
+      color: #F0F0F0;
+      background: #C52F24;
+      padding: 0.5em 1.5em;
+    }
+
+    h1 {
+      margin: 0.2em 0;
+      line-height: 1.1em;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #C52F24;
+      line-height: 25px;
+    }
+
+    .details {
+      border: 1px solid #D0D0D0;
+      border-radius: 4px;
+      margin: 1em 0px;
+      display: block;
+      width: 978px;
+    }
+
+    .summary {
+      padding: 8px 15px;
+      border-bottom: 1px solid #D0D0D0;
+      display: block;
+    }
+
+    .details pre {
+      margin: 5px;
+      border: none;
+    }
+
+    #container {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 1.5em;
+    }
+
+    .source * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .source {
+      border: 1px solid #D9D9D9;
+      background: #ECECEC;
+      width: 978px;
+    }
+
+    .source pre {
+      padding: 10px 0px;
+      border: none;
+    }
+
+    .source .data {
+      font-size: 80%;
+      overflow: auto;
+      background-color: #FFF;
+    }
+
+    .info {
+      padding: 0.5em;
+    }
+
+    .source .data .line_numbers {
+      background-color: #ECECEC;
+      color: #AAA;
+      padding: 1em .5em;
+      border-right: 1px solid #DDD;
+      text-align: right;
+    }
+
+    .line {
+      padding-left: 10px;
+    }
+
+    .line:hover {
+      background-color: #F6F6F6;
+    }
+
+    .line.active {
+      background-color: #FFCCCC;
+    }
+
+    a { color: #980905; }
+    a:visited { color: #666; }
+    a:hover { color: #C52F24; }
+
+    
+  </style>
+
+  <script>
+    var toggle = function(id) {
+      var s = document.getElementById(id).style;
+      s.display = s.display == 'none' ? 'block' : 'none';
+      return false;
+    }
+    var show = function(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    var hide = function(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    var toggleTrace = function() {
+      return toggle('blame_trace');
+    }
+    var toggleSessionDump = function() {
+      return toggle('session_dump');
+    }
+    var toggleEnvDump = function() {
+      return toggle('env_dump');
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>
+    ActionController::InvalidAuthenticityToken
+      in SessionsController#destroy
+  </h1>
+</header>
+
+<div id="container">
+  <h2>ActionController::InvalidAuthenticityToken</h2>
+
+  
+  
+<p><code>Rails.root: /home/allen/railstest/motley</code></p>
+
+<div id="traces">
+    <a href="#" onclick="hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);; return false;">Application Trace</a> |
+    <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);; return false;">Framework Trace</a> |
+    <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);; return false;">Full Trace</a> 
+
+    <div id="Application-Trace" style="display: block;">
+      <pre><code></code></pre>
+    </div>
+    <div id="Framework-Trace" style="display: none;">
+      <pre><code>actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:176:in `handle_unverified_request&#39;
+actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:202:in `handle_unverified_request&#39;
+actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:197:in `verify_authenticity_token&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:424:in `block in make_lambda&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `block in halting&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;
+actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;
+actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;
+actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action&#39;
+activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument&#39;
+activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument&#39;
+activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument&#39;
+actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39;
+actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action&#39;
+activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action&#39;
+actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process&#39;
+actionview (4.1.6) lib/action_view/rendering.rb:30:in `process&#39;
+actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch&#39;
+actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch&#39;
+actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call&#39;
+actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each&#39;
+actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call&#39;
+rack (1.5.2) lib/rack/etag.rb:23:in `call&#39;
+rack (1.5.2) lib/rack/conditionalget.rb:35:in `call&#39;
+rack (1.5.2) lib/rack/head.rb:11:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call&#39;
+activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call&#39;
+activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39;
+activerecord (4.1.6) lib/active_record/migration.rb:380:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.6) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.6) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+/home/allen/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+/home/allen/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+/home/allen/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;</code></pre>
+    </div>
+    <div id="Full-Trace" style="display: none;">
+      <pre><code>actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:176:in `handle_unverified_request&#39;
+actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:202:in `handle_unverified_request&#39;
+actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:197:in `verify_authenticity_token&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:424:in `block in make_lambda&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `block in halting&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;
+actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;
+actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;
+actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action&#39;
+activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument&#39;
+activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument&#39;
+activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument&#39;
+actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action&#39;
+actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action&#39;
+activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action&#39;
+actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process&#39;
+actionview (4.1.6) lib/action_view/rendering.rb:30:in `process&#39;
+actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch&#39;
+actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch&#39;
+actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call&#39;
+actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each&#39;
+actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call&#39;
+rack (1.5.2) lib/rack/etag.rb:23:in `call&#39;
+rack (1.5.2) lib/rack/conditionalget.rb:35:in `call&#39;
+rack (1.5.2) lib/rack/head.rb:11:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context&#39;
+rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call&#39;
+activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call&#39;
+activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39;
+activerecord (4.1.6) lib/active_record/migration.rb:380:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.6) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.6) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+/home/allen/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+/home/allen/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+/home/allen/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;</code></pre>
+    </div>
+</div>
+
+  
+
+<h2 style="margin-top: 30px">Request</h2>
+<p><b>Parameters</b>:</p> <pre>None</pre>
+
+<div class="details">
+  <div class="summary"><a href="#" onclick="return toggleSessionDump()">Toggle session dump</a></div>
+  <div id="session_dump" style="display:none"><pre>_csrf_token: &quot;L+nuBbq15qLwwMwejDJEOO1J3mmG2CCS8UlFobJPiZc=&quot;
+session_id: &quot;83414336f04e18777aadfef399cb7726&quot;
+user_id: 71</pre></div>
+</div>
+
+<div class="details">
+  <div class="summary"><a href="#" onclick="return toggleEnvDump()">Toggle env dump</a></div>
+  <div id="env_dump" style="display:none"><pre>GATEWAY_INTERFACE: &quot;CGI/1.1&quot;
+REMOTE_ADDR: &quot;127.0.0.1&quot;
+REMOTE_HOST: &quot;127.0.0.1&quot;
+SERVER_NAME: &quot;0.0.0.0&quot;
+SERVER_PROTOCOL: &quot;HTTP/1.1&quot;</pre></div>
+</div>
+
+<h2 style="margin-top: 30px">Response</h2>
+<p><b>Headers</b>:</p> <pre>None</pre>
+
+</div>
+
+
+</body>
+</html>
+
+]]>
+  </body>
+</response>
+<testResult cycle="001" cvus="000" thread="001" suite="Simple" name="test_critical_path"  time="1418416020.15" result="Failure" steps="14" duration="4.08555102348" connection_duration="3.98272514343" requests="28" pages="13" xmlrpc="0" redirects="2" images="3" links="9" traceback="Traceback (most recent call last):&#10;   File &quot;/usr/local/lib/python2.7/dist-packages/funkload-1.16.1-py2.7.egg/funkload/FunkLoadTestCase.py&quot;, line 946, in __call__&#10;    testMethod()&#10;   File &quot;/home/allen/railstest/motley/funkload/test_Simple.py&quot;, line 136, in test_critical_path&#10;    self.delete(server_url + &quot;/logout&quot;,description=&quot;Test user log-out&quot;)&#10;   File &quot;/usr/local/lib/python2.7/dist-packages/funkload-1.16.1-py2.7.egg/funkload/FunkLoadTestCase.py&quot;, line 412, in delete&#10;    return self.method('delete', url, None, description, ok_codes)&#10;   File &quot;/usr/local/lib/python2.7/dist-packages/funkload-1.16.1-py2.7.egg/funkload/FunkLoadTestCase.py&quot;, line 401, in method&#10;    method=method, load_auto_links=load_auto_links)&#10;   File &quot;/usr/local/lib/python2.7/dist-packages/funkload-1.16.1-py2.7.egg/funkload/FunkLoadTestCase.py&quot;, line 299, in _browse&#10;    response = self._connect(url, params, ok_codes, method, description)&#10;   File &quot;/usr/local/lib/python2.7/dist-packages/funkload-1.16.1-py2.7.egg/funkload/FunkLoadTestCase.py&quot;, line 216, in _connect&#10;    raise self.failureException, str(value.response)&#10; AssertionError: /logout&#10;HTTP Response 422: Unprocessable Entity&#10;" />

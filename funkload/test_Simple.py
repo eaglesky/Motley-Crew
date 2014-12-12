@@ -131,6 +131,11 @@ class Simple(FunkLoadTestCase):
 
 
 
+        # Test user log-out
+
+        self.delete(server_url + "/logout",description="Test user log-out")
+        self.assert_("Sign up now!" in self.getBody(), "Not the root page after user logged out")
+        self.assert_("Log in" in self.getBody(), "Not the root page after user logged out")
 
 
         self.get(server_url + "/login", description="Get log-in url")
