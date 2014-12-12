@@ -11,11 +11,18 @@ endif
 all: test
 
 # testing
-test:
+test_original:
 	fl-run-test test_Simple.py -v $(FLOPS)
 
+test:
+	fl-run-test -d test_Simple.py
+
 # benching
-bench: bench_fast
+bench: 
+	fl-run-bench test_Simple.py Simple.test_critical_path
+
+report:
+	fl-build-report --html simple-bench.xml
 
 bench_all: bench_fast bench_fast_multicpu bench_resources bench_sleep diff_reports
 

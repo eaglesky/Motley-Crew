@@ -4,6 +4,12 @@ class Quest < ActiveRecord::Base
 
   validates :quest_giver, :presence => true
   
+  validates :title, presence: true
+  validates :description, presence: true
+
+  validates :source, presence: true
+  validates :destination, presence: true
+  validates :reward, presence:true, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10000 }
 
   def self.simple_search(search, current_user_obj)
 
