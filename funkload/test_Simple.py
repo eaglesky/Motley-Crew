@@ -132,15 +132,26 @@ class Simple(FunkLoadTestCase):
 
 
         # Test user log-out
-
-        self.delete(server_url + "/logout",description="Test user log-out")
+        self.get(server_url + "/logout",params=[['authenticity_token', auth_token_quest]],
+            description="Test user log-out")
         self.assert_("Sign up now!" in self.getBody(), "Not the root page after user logged out")
         self.assert_("Log in" in self.getBody(), "Not the root page after user logged out")
 
 
+        # Test user log-in
         self.get(server_url + "/login", description="Get log-in url")
+        self.assert_("New user?" in self.getBody(), "Not the log-in page")
+        self.post(self.server_url + "/login",
+        params=[ 
+          ['session[email]', email],
+          ['session[password]', '12345678'],
+          ['authenticity_token', auth_token],
+          ['commit', 'Log in']],
+        description="User logs in")
         
-
+        # Check if the user sucessfully logs in
+        self.assertEquals(self.getLastUrl(), "/profile", "Is not user profile page")
+        self.assert_(name in self.getBody(), "Wrong profile page")
 
 if __name__ in ('main', '__main__'):
     unittest.main()
