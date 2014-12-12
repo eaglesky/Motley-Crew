@@ -25,20 +25,21 @@ class Simple(FunkLoadTestCase):
         self.get(server_url + "/signup", description="Get sign-up url")
         
         auth_token = extract_token(self.getBody(), 'name="authenticity_token" type="hidden" value="', '"')
-      #  email = Lipsum().getUniqWord() + "@" + Lipsum().getWord() + ".com"
-        email = 'test3@example.com'
-        name = 'test3'
-        self.post(self.server_url + "/users",
+        email = Lipsum().getUniqWord() + "@" + Lipsum().getWord() + ".com"
+#         email = 'test3@example.com'
+        name = Lipsum().getWord()
+        res = self.post(self.server_url + "/users",
         params=[ ['user[name]', name],
           ['user[email]', email],
-          ['user[password]', '12345678'],
-          ['user[password_confirmation]', '12345678'],
+          ['user[password]', hash(email)],
+          ['user[password_confirmation]', hash(email)],
           ['authenticity_token', auth_token],
           ['commit', 'Create my account']],
         description="Create New User")
-
+        print res, email
+        self.assertEqual(res.code, 200)
         self.get(server_url + "/profile", description="View the profile page of the new user")
-
+#         print self.getBody()
         
         self.get(server_url + "/login", description="Get log-in url")
         
