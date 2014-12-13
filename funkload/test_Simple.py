@@ -127,12 +127,14 @@ class Simple(FunkLoadTestCase):
             page_num = randint(1, pages_total_num)
             self.get(server_url + "/quests?page=" + str(page_num), 
                 description="Get the random page (page " + str(page_num) +")")
-    
-            assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
-            if page_num == 1 :
-                assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
-            self.assert_(assert_active_str in self.getBody(),
-             "Error when switching to page " + str(page_num))
+            
+            # Check pagination when you have more than 1 page of quests
+            if pages_total_num > 1:
+                assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
+                if page_num == 1 :
+                    assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
+                self.assert_(assert_active_str in self.getBody(),
+                 "Error when switching to page " + str(page_num))
     
             # Click on "Accept Quest" 
             quest_id_path = extract_token(self.getBody(), 'onclick="location.href=', '"')
