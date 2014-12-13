@@ -152,10 +152,10 @@ class Simple(FunkLoadTestCase):
                   ['id', quest_id_path.split('/')[-1]]],
                 description="Complete current quest")
                 self.assert_("Quest complete!" in self.getBody(), "Not the correct page for the completed quest")
-            else:
-                self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be completed")
-        else:
-            self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be accepted")
+        #     else:
+        #         self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be completed")
+       #  else:
+       #      self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be accepted")
 
 
         # Test user log-out
