@@ -43,7 +43,7 @@ class QuestsController < ApplicationController
 
   def update
     @quest = Quest.find(params[:id])
-
+  
     redirect_to quest_path(@quest) unless !@quest.completed
 
     fields = update_quest_params
