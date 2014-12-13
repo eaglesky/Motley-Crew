@@ -34,14 +34,15 @@ class Simple(FunkLoadTestCase):
         
         auth_token = extract_token(self.getBody(), 'name="authenticity_token" type="hidden" value="', '"')
         name = Lipsum().getUniqWord(length_min=1, length_max=20)
-        maxLenMail = 250 - len(name)
+        maxLenMail = 30 - len(name)
         email = name + "@" + Lipsum().getUniqWord(length_min=1, length_max=maxLenMail) + ".com"
-        
+        password = hash(email)
+
         self.post(self.server_url + "/users",
         params=[ ['user[name]', name],
           ['user[email]', email],
-          ['user[password]', '12345678'],
-          ['user[password_confirmation]', '12345678'],
+          ['user[password]', password],
+          ['user[password_confirmation]', password],
           ['authenticity_token', auth_token],
           ['commit', 'Create my account']],
         description="Create New User")
@@ -170,7 +171,7 @@ class Simple(FunkLoadTestCase):
         self.post(self.server_url + "/login",
         params=[ 
           ['session[email]', email],
-          ['session[password]', '12345678'],
+          ['session[password]', hash(email)],
           ['authenticity_token', auth_token],
           ['commit', 'Log in']],
         description="User logs in")

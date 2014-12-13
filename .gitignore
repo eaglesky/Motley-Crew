@@ -20,3 +20,4 @@ funkload/.pydevproject
 funkload-demo/
 funkload/*.pyc
 funkload/*.xml
+funkload/*.log
