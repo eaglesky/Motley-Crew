@@ -117,45 +117,50 @@ class Simple(FunkLoadTestCase):
         # Test selecting a quest on a random page and viewing its content
         self.get(server_url + "/quests", description="Go back to the basic quest browsing page")
         quest_total = extract_token(self.getBody(), '<h3>Quests (', ')')
-        quest_total_num = int(quest_total)
-        pages_total_num = int(ceil(quest_total_num / 10.0))
-        page_num = randint(1, pages_total_num)
-        self.get(server_url + "/quests?page=" + str(page_num), 
-            description="Get the random page (page " + str(page_num) +")")
+        if not quest_total:
+            quest_total_num = 0
+        else:
+            quest_total_num = int(quest_total)
 
-        assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
-        if page_num == 1 :
-            assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
-        self.assert_(assert_active_str in self.getBody(),
-         "Error when switching to page " + str(page_num))
-
-        # Click on "Accept Quest" 
-        quest_id_path = extract_token(self.getBody(), 'onclick="location.href=', '"')
-        quest_id_path = quest_id_path[1:-1]
-        self.get(server_url + quest_id_path, description="Select the topest quest on the current page")
-
-        if "Accept Quest" in self.getBody(): 
-            self.put(server_url + quest_id_path, 
-            params=[['quest[quester_id]', user_id], 
-              ['authenticity_token', auth_token],
-              ['commit', 'Accept Quest'], 
-              ['id', quest_id_path.split('/')[-1]]],
-            description="Accept current quest")
-
-            self.assertEquals(self.getLastUrl(), quest_id_path, "Is not quest page")
-
-            if "Complete Quest" in self.getBody():
+        if quest_total_num:
+            pages_total_num = int(ceil(quest_total_num / 10.0))
+            page_num = randint(1, pages_total_num)
+            self.get(server_url + "/quests?page=" + str(page_num), 
+                description="Get the random page (page " + str(page_num) +")")
+    
+            assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
+            if page_num == 1 :
+                assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
+            self.assert_(assert_active_str in self.getBody(),
+             "Error when switching to page " + str(page_num))
+    
+            # Click on "Accept Quest" 
+            quest_id_path = extract_token(self.getBody(), 'onclick="location.href=', '"')
+            quest_id_path = quest_id_path[1:-1]
+            self.get(server_url + quest_id_path, description="Select the topest quest on the current page")
+    
+            if "Accept Quest" in self.getBody(): 
                 self.put(server_url + quest_id_path, 
-                params=[['quest[completed]', 'true'], 
+                params=[['quest[quester_id]', user_id], 
                   ['authenticity_token', auth_token],
-                  ['commit', 'Complete Quest'], 
+                  ['commit', 'Accept Quest'], 
                   ['id', quest_id_path.split('/')[-1]]],
-                description="Complete current quest")
-                self.assert_("Quest complete!" in self.getBody(), "Not the correct page for the completed quest")
-        #     else:
-        #         self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be completed")
-       #  else:
-       #      self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be accepted")
+                description="Accept current quest")
+    
+                self.assertEquals(self.getLastUrl(), quest_id_path, "Is not quest page")
+    
+                if "Complete Quest" in self.getBody():
+                    self.put(server_url + quest_id_path, 
+                    params=[['quest[completed]', 'true'], 
+                      ['authenticity_token', auth_token],
+                      ['commit', 'Complete Quest'], 
+                      ['id', quest_id_path.split('/')[-1]]],
+                    description="Complete current quest")
+                    self.assert_("Quest complete!" in self.getBody(), "Not the correct page for the completed quest")
+            #     else:
+            #         self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be completed")
+           #  else:
+           #      self.assert_("Someone else has" in self.getBody(), "Not the correct page for the quest to be accepted")
 
 
         # Test user log-out
