@@ -78,63 +78,63 @@ class Simple(FunkLoadTestCase):
         user_id = str(int(user_id))
         
 
-        # Test quest searching page
-        self.get(server_url + "/quests", description="Get quests url")
-        self.assert_("Quests" in self.getBody(), "Wrong quest page")
-        self.assert_("Advanced Search" in self.getBody(), "Wrong quest page")
-        self.assert_("Search in title" in self.getBody(), "Wrong quest page")
-
-        # Test sorting (only on foreign key)
-        sorted_url = server_url + "/quests?direction=asc&sort=quest_giver_id"
-        self.get(sorted_url, description="Sort by quest giver")
-        test_arrow_up = 'Quest Giver <img alt="Arrow up"'
-        self.assert_(test_arrow_up in self.getBody(), "Error when sorting by quest giver")
-
-        # Test basic search (by title)
-        basic_search_title = Lipsum().getUniqWord(length_min=1, length_max=10)
-        self.get(sorted_url + "&search=" + basic_search_title, 
-          description="Search for " + basic_search_title + " in title")
-
-        # Test advanced search
-        self.get(server_url + "/new_search", description="Get advanced search page")
-        self.assert_("Title contains" in self.getBody(), "Error when loading advanced-search page")
-
-        search_title = Lipsum().getUniqWord(length_min=1, length_max=10)
-        search_source = Lipsum().getAddress()
-        search_destination = Lipsum().getAddress()
-        search_reward_min = randint(1, 10000)
-        search_reward_max = randint(search_reward_min, 10000)
-        self.get(server_url + "/quests",
-        params=[['session[title]', search_title],
-        ['session[source]', search_source],
-        ['session[destination]', search_destination],
-        ['session[reward_min]', search_reward_min], 
-        ['session[reward_max]', search_reward_max],
-        ['commit', 'Search']],
-        description="Do a new advanced search")
-        self.assert_("Search in title" in self.getBody(), "Wrong quest page")
-
-        # Test selecting a quest on a random page and viewing its content
-        self.get(server_url + "/quests", description="Go back to the basic quest browsing page")
-        quest_total = extract_token(self.getBody(), '<h3>Quests (', ')')
-        if not quest_total:
-            quest_total_num = 0
-        else:
-            quest_total_num = int(quest_total)
-
-        if quest_total_num:
-            pages_total_num = int(ceil(quest_total_num / 10.0))
-            page_num = randint(1, pages_total_num)
-            self.get(server_url + "/quests?page=" + str(page_num), 
-                description="Get the random page (page " + str(page_num) +")")
-            
-            # Check pagination when you have more than 1 page of quests
-            if pages_total_num > 1:
-                assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
-                if page_num == 1 :
-                    assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
-                self.assert_(assert_active_str in self.getBody(),
-                 "Error when switching to page " + str(page_num))
+#         # Test quest searching page
+#         self.get(server_url + "/quests", description="Get quests url")
+#         self.assert_("Quests" in self.getBody(), "Wrong quest page")
+#         self.assert_("Advanced Search" in self.getBody(), "Wrong quest page")
+#         self.assert_("Search in title" in self.getBody(), "Wrong quest page")
+# 
+#         # Test sorting (only on foreign key)
+#         sorted_url = server_url + "/quests?direction=asc&sort=quest_giver_id"
+#         self.get(sorted_url, description="Sort by quest giver")
+#         test_arrow_up = 'Quest Giver <img alt="Arrow up"'
+#         self.assert_(test_arrow_up in self.getBody(), "Error when sorting by quest giver")
+# 
+#         # Test basic search (by title)
+#         basic_search_title = Lipsum().getUniqWord(length_min=1, length_max=10)
+#         self.get(sorted_url + "&search=" + basic_search_title, 
+#           description="Search for " + basic_search_title + " in title")
+# 
+#         # Test advanced search
+#         self.get(server_url + "/new_search", description="Get advanced search page")
+#         self.assert_("Title contains" in self.getBody(), "Error when loading advanced-search page")
+# 
+#         search_title = Lipsum().getUniqWord(length_min=1, length_max=10)
+#         search_source = Lipsum().getAddress()
+#         search_destination = Lipsum().getAddress()
+#         search_reward_min = randint(1, 10000)
+#         search_reward_max = randint(search_reward_min, 10000)
+#         self.get(server_url + "/quests",
+#         params=[['session[title]', search_title],
+#         ['session[source]', search_source],
+#         ['session[destination]', search_destination],
+#         ['session[reward_min]', search_reward_min], 
+#         ['session[reward_max]', search_reward_max],
+#         ['commit', 'Search']],
+#         description="Do a new advanced search")
+#         self.assert_("Search in title" in self.getBody(), "Wrong quest page")
+# 
+#         # Test selecting a quest on a random page and viewing its content
+#         self.get(server_url + "/quests", description="Go back to the basic quest browsing page")
+#         quest_total = extract_token(self.getBody(), '<h3>Quests (', ')')
+#         if not quest_total:
+#             quest_total_num = 0
+#         else:
+#             quest_total_num = int(quest_total)
+# 
+#         if quest_total_num:
+#             pages_total_num = int(ceil(quest_total_num / 10.0))
+#             page_num = randint(1, pages_total_num)
+#             self.get(server_url + "/quests?page=" + str(page_num), 
+#                 description="Get the random page (page " + str(page_num) +")")
+#             
+#             # Check pagination when you have more than 1 page of quests
+#             if pages_total_num > 1:
+#                 assert_active_str = '<li class="active"><a href="/quests?page='+str(page_num)
+#                 if page_num == 1 :
+#                     assert_active_str = '<li class="active"><a rel="start" href="/quests?page=1'
+#                 self.assert_(assert_active_str in self.getBody(),
+#                  "Error when switching to page " + str(page_num))
     
 #             # Click on "Accept Quest" 
 #             quest_id_path = extract_token(self.getBody(), 'onclick="location.href=', '"')
@@ -172,20 +172,20 @@ class Simple(FunkLoadTestCase):
         self.assert_("Log in" in self.getBody(), "Not the root page after user logged out")
 
 
-        # Test user log-in
-        self.get(server_url + "/login", description="Get log-in url")
-        self.assert_("New user?" in self.getBody(), "Not the log-in page")
-        self.post(self.server_url + "/login",
-        params=[ 
-          ['session[email]', email],
-          ['session[password]', hash(email)],
-          ['authenticity_token', auth_token],
-          ['commit', 'Log in']],
-        description="User logs in")
-        
-        # Check if the user sucessfully logs in
-        self.assertEquals(self.getLastUrl(), "/profile", "Is not user profile page")
-        self.assert_(name in self.getBody(), "Wrong profile page")
+#         # Test user log-in
+#         self.get(server_url + "/login", description="Get log-in url")
+#         self.assert_("New user?" in self.getBody(), "Not the log-in page")
+#         self.post(self.server_url + "/login",
+#         params=[ 
+#           ['session[email]', email],
+#           ['session[password]', hash(email)],
+#           ['authenticity_token', auth_token],
+#           ['commit', 'Log in']],
+#         description="User logs in")
+#         
+#         # Check if the user sucessfully logs in
+#         self.assertEquals(self.getLastUrl(), "/profile", "Is not user profile page")
+#         self.assert_(name in self.getBody(), "Wrong profile page")
 
 if __name__ in ('main', '__main__'):
     unittest.main()
