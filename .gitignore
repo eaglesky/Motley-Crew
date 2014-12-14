@@ -21,3 +21,6 @@ funkload-demo/
 funkload/*.pyc
 funkload/*.xml
 funkload/*.log
+funkload/*.xml.bak-*
+*.orig
+ubuntu@*
