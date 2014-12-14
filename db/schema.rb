@@ -37,6 +37,4 @@ ActiveRecord::Schema.define(version: 20141204050411) do
     t.integer  "score",           default: 100
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-
 end
