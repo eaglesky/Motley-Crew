@@ -1,4 +1,4 @@
 {
-        "max_pool_size": 20,
-        "min_instances": 16
+        "max_pool_size": 50,
+        "min_instances": 20
 }
